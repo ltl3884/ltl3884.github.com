@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby中的||=操作符 - ltl3884</title>
+  <meta name="author" content="ltl3884">
+
+  
+  <meta name="description" content="1
+2
+3
+def current_user @current_user ||= session[:user_id] &amp;&amp; User.find(session[:user_id])
+end 短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。 这句代码相当于 1
+2
+3
+4 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="ltl3884" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+
+
+  
+
+  <style>html{background: url(/images/background.png) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby中的||=操作符</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-22T10:56:34+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">current_user</span>
+</span><span class='line'>  <span class="vi">@current_user</span> <span class="o">||=</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。</p>
+
+<p>这句代码相当于</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">current_user</span>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@current_user</span>
+</span><span class='line'>       <span class="k">return</span> <span class="vi">@current_user</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>       <span class="k">if</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span>
+</span><span class='line'>          <span class="vi">@current_user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>       <span class="k">else</span>
+</span><span class='line'>          <span class="vi">@current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'>       <span class="k">return</span> <span class="vi">@current_user</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>展开后的代码看起来很恶心，代码意思为：如果@current_user不为空直接返回@current_user。 如果@current_user为空，则根据session中的user_id判断是否登录，如果已经登录则查找出用户信息并返回。如果没有登录则返回空。</p>
+
+<p>这里总结下各符号用法： and 与 &amp;&amp; 为和，区别是and优先级比&amp;&amp;低。 or 与 || 为或，not与!为非，区别均是前者优先级低于后者 &amp;&amp;=, !=, ||=这个比较灵活，以前习惯用Java，可以认为它相当于Java里的+=,-=。 a &amp;&amp;= b即为a = a &amp;&amp; b。可见Ruby比Java灵活很多。</p>
+
+<p>Ruby的&amp;&amp;, ||与其它语言有些不同。 &amp;&amp;运算法则为：左边为false或nil时，直接分别返回false或nil，右边将不会运算。 左边不为false或nil时，返回右边的对象。 ||运算法则为：左边为false或nil时，返回右边的对象。 左边不为false或nil时，直接返回左边的对象，右边的不会运算。 我整理了几个例子:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="kp">false</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; false</span>
+</span><span class='line'><span class="nb">puts</span> <span class="kp">nil</span>   <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; nil</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="kp">true</span>  <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;123&quot;</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="kp">false</span> <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="kp">nil</span>   <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="kp">true</span>  <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; true</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;123&quot;</span> <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;123&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果你想深入请看下面，不深入就算了 其实||=这个运算符里面比较复杂，或者说有点乱。 x ||= y 相当于 x || x=y 而不是 x = x||y 区别在于如果x存在且不为空时不会执行任何操作，直接返回。 还相当于</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">defined?</span> <span class="n">x</span>
+</span><span class='line'>    <span class="n">x</span> <span class="o">||</span> <span class="n">x</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">ltl3884</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-22T10:56:34+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/" data-via="" data-counturl="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20130603/bash-profile-and-bashrc.html/" title="Previous Post: 关于bash_profile和bashrc">&laquo; 关于bash_profile和bashrc</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/20141114/git-work-flow.html/" title="Next Post: git工作流程(转)">git工作流程(转) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>ruby developer</p>
+</section>
+<section id="titles">
+  <a href="http://ltl3884.github.io" title="ltl3884"><img id="logo" src="http://ltl3884.github.io/images/apple.png" /></a>
+  <h1 id="site_title"><a href="http://ltl3884.github.io" title="ltl3884">ltl3884</a></h1>
+  <h3 id="site_subtitle"></h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="http://ltl3884.github.io"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="http://ltl3884.github.io/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="http://ltl3884.github.io/about/"> About </a></li>
+    <li><i class="fa fa-rss fa-lg"></i><a href="http://ltl3884.github.io/atom.xml"> Feed </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+    <a href="https://github.com/ltl3884" title="ltl3884"><i class="fa fa-github fa-2x"></i></a>
+  
+
+  
+
+  
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20141114/git-work-flow.html/">git工作流程(转)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20130322/avoid-bundle-exec.html/">avoid-bundle-exec</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/ltl3884">@ltl3884</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'ltl3884',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - ltl3884 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ltl3884';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ltl3884.github.io/blog/20130722/ruby-or-and.html/';
+        var disqus_url = 'http://ltl3884.github.io/blog/20130722/ruby-or-and.html/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

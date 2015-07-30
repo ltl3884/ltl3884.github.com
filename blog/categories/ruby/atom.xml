@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类ruby | ltl3884]]></title>
+  <link href="http://ltl3884.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ltl3884.github.io/"/>
+  <updated>2015-07-30T16:23:35+08:00</updated>
+  <id>http://ltl3884.github.io/</id>
+  <author>
+    <name><![CDATA[ltl3884]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby中的||=操作符]]></title>
+    <link href="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/"/>
+    <updated>2013-07-22T10:56:34+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130722/ruby-or-and</id>
+    <content type="html"><![CDATA[<pre><code class="ruby">def current_user 
+  @current_user ||= session[:user_id] &amp;&amp; User.find(session[:user_id]) 
+end
+</code></pre>
+
+<p>短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。</p>
+
+<p>这句代码相当于</p>
+
+<pre><code class="ruby">    def current_user
+        if @current_user
+           return @current_user
+        else
+           if session[:user_id]
+              @current_user = User.find(session[:user_id])
+           else
+              @current_user = nil
+           end
+           return @current_user
+        end
+    end
+</code></pre>
+
+<p>展开后的代码看起来很恶心，代码意思为：如果@current_user不为空直接返回@current_user。 如果@current_user为空，则根据session中的user_id判断是否登录，如果已经登录则查找出用户信息并返回。如果没有登录则返回空。</p>
+
+<p>这里总结下各符号用法： and 与 &amp;&amp; 为和，区别是and优先级比&amp;&amp;低。 or 与 || 为或，not与!为非，区别均是前者优先级低于后者 &amp;&amp;=, !=, ||=这个比较灵活，以前习惯用Java，可以认为它相当于Java里的+=,-=。 a &amp;&amp;= b即为a = a &amp;&amp; b。可见Ruby比Java灵活很多。</p>
+
+<p>Ruby的&amp;&amp;, ||与其它语言有些不同。 &amp;&amp;运算法则为：左边为false或nil时，直接分别返回false或nil，右边将不会运算。 左边不为false或nil时，返回右边的对象。 ||运算法则为：左边为false或nil时，返回右边的对象。 左边不为false或nil时，直接返回左边的对象，右边的不会运算。 我整理了几个例子:</p>
+
+<pre><code class="ruby">    puts false &amp;&amp; "abc"      # =&gt; false
+    puts nil   &amp;&amp; "abc"      # =&gt; nil
+
+    puts true  &amp;&amp; "abc"      # =&gt; "abc"
+    puts "123" &amp;&amp; "abc"      # =&gt; "abc"
+
+    puts false || "abc"      # =&gt; "abc"
+    puts nil   || "abc"      # =&gt; "abc"
+
+    puts true  || "abc"      # =&gt; true
+    puts "123" || "abc"      # =&gt; "123"
+</code></pre>
+
+<p>如果你想深入请看下面，不深入就算了 其实||=这个运算符里面比较复杂，或者说有点乱。 x ||= y 相当于 x || x=y 而不是 x = x||y 区别在于如果x存在且不为空时不会执行任何操作，直接返回。 还相当于</p>
+
+<pre><code class="ruby">    if defined? x
+        x || x=y
+    else
+        x = y
+    end
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[open-file-mode]]></title>
+    <link href="http://ltl3884.github.io/blog/20120817/open-file-mode.html/"/>
+    <updated>2012-08-17T10:33:04+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120817/open-file-mode</id>
+    <content type="html"><![CDATA[<h2>r</h2>
+
+<pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
+This is the default mode.
+</code></pre>
+
+<h2>r+</h2>
+
+<pre><code>Read-write mode. The file pointer will be at the beginning of the file.
+</code></pre>
+
+<h2>w</h2>
+
+<pre><code>Write-only mode. Overwrites the file if the file exists. 
+If the file does not exist, creates a new file for writing.
+</code></pre>
+
+<h2>w+</h2>
+
+<pre><code>Read-write mode. Overwrites the existing file if the file exists. 
+If the file does not exist, creates a new file for reading and writing.
+</code></pre>
+
+<h2>a</h2>
+
+<pre><code>Write-only mode. 
+The file pointer is at the end of the file if the file exists. 
+That is, the file is in the append mode. 
+If the file does not exist, it creates a new file for writing.
+</code></pre>
+
+<h2>a+</h2>
+
+<pre><code>Read and write mode. 
+The file pointer is at the end of the file if the file exists. 
+The file opens in the append mode. 
+If the file does not exist, it creates a new file for reading and writing.
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

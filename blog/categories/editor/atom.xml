@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类editor | ltl3884]]></title>
+  <link href="http://ltl3884.github.io/blog/categories/editor/atom.xml" rel="self"/>
+  <link href="http://ltl3884.github.io/"/>
+  <updated>2015-07-30T16:23:35+08:00</updated>
+  <id>http://ltl3884.github.io/</id>
+  <author>
+    <name><![CDATA[ltl3884]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[textmate-shortcuts]]></title>
+    <link href="http://ltl3884.github.io/blog/20120813/textmate-shortcuts.html/"/>
+    <updated>2012-08-13T10:28:18+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120813/textmate-shortcuts</id>
+    <content type="html"><![CDATA[<p>TextMate 快捷键</p>
+
+<pre><code>cmd + option + L    显示行号
+cmd + F            页面搜索文字
+cmd + shift + F        项目搜索文字
+cmd + G            下一个搜索文字
+cmd + shift + G    上一个搜索文字
+cmd + option + F    替换一个
+cmd + ctrl + F        全部替换
+cmd + S            保存
+cmd + option + S    全部保存    
+cmd + shift + S        另存为。。。。
+cmd + shift + -&gt;        选中光标右面的内容
+cmd + shift + &lt;-        选中光标左面的内容
+cmd + shift + L        选取一行信息
+cmd + L             定位到某一行
+cmd + option + -&gt;    textmate项目中右面的标签
+cmd + option + &lt;-    textmate项目中左面的标签
+cmd + 数字        选择某个标签
+cmd + -&gt;            光标回到行尾
+cmd + &lt;-            光标回到行首
+cmd + ^            光标回到页首
+cmd + 下箭头        光标回到页尾
+cmd + /                注释一行
+cmd + z            返回前一个内容
+cmd + ]                增加缩进
+cmd + [                减少缩进
+cmd + T            打开项目下的文件
+cmd + O            打开项目
+cmd + N            新建文件
+cmd + W                 关闭标签
+cmd + X            剪切
+cmd + C            复制
+cmd + V            粘帖
+cmd + M            最小法
+cmd + F2            标记
+cmd + shift + z        返回后一个内容
+cmd + option + [        格式化代码
+cmd + shift + T        当前文件中所有方法的
+cmd + shift + W    关闭项目
+cmd + option + L      显示行号
+cmd + alt + [       代码格式化
+cmd + shift + t 当前文件中所有的方法导航
+
+ctrl + A                    光标回到行首
+ctrl + E                    光标回到行尾
+ctrl + L                    自动生成 =&gt;
+ctrl + w                    选取一个单词
+ctrl + tab                    在菜单栏和页面切换
+ctrl + 上箭头                向上移动下拉菜单
+ctrl + 下箭头                向下移动下拉菜单
+ctrl + cmd + 上箭头    向上移动整行
+ctrl + cmd + 下箭头    向下移动整行
+ctrl + shift + k 删除一行代码
+ctrl + shift + &gt;  (erb模板) 一键&lt;%= %&gt;，连续按会出现多种效果 
+ctrl + option + cmd + V    从历史中选择内容粘帖
+
+option|ctrl + -&gt;            光标向右移动一个单词
+option|ctrl + &lt;-            光标向左移动一个单词
+option|ctrl + shift + &gt;   选中光标右面的单词
+option|ctrl + shift + &lt;   选中光标左面的单词
+
+F2                        在标记间切换
+tab     输入def按tab它会自动补全end
+esc     以该文件中已经出现过的词做自动补全，可以按多次esc切换单词
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[sublime-text-2-useful-shortcuts]]></title>
+    <link href="http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts.html/"/>
+    <updated>2012-08-13T10:20:36+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts</id>
+    <content type="html"><![CDATA[<h2>打开/前往</h2>
+
+<pre><code>⌘T     前往文件
+⌘⌃P  前往项目
+⌘R   前往 method
+⌘⇧P  命令提示
+⌃G   前往行
+⌘KB  开关侧栏
+⌃ `  python 控制台
+⌘⇧N  新建窗口
+</code></pre>
+
+<h2>编辑</h2>
+
+<pre><code>⌘L   选择行 (重复按下将下一行加入选择)
+⌘D   选择词 (重复按下时多重选择相同的词进行多重编辑)
+⌃⇧M  选择括号内的内容
+⌘⇧↩  在当前行前插入新行
+⌘↩   在当前行后插入新行
+⌃⇧K  删除行
+⌘KK  从光标处删除至行尾
+⌘K⌫  从光标处删除至行首
+⌘⇧D  复制(多)行
+⌘J   合并(多)行
+⌘KU  改为大写
+⌘KL  改为小写
+⌘ /  注释
+⌘⌥ /   块注释
+⌘Y   恢复或重复
+⌘⇧V  粘贴并自动缩进
+⌃ space  自动完成(重复按下选择下一个提示)
+⌃M   跳转至对应的括号
+⌘U   软撤销（可撤销光标移动）
+⌘⇧U  软重做（可重做光标移动）
+XML/HTML
+⌘⇧A  选择标签内的内容
+⌘⌥ .   闭合当前标签
+</code></pre>
+
+<h2>查找/替换</h2>
+
+<pre><code>⌘F   查找
+⌘⌥F  替换
+⌘⌥G  查找下一个符合当前所选的内容
+⌘⌃G  查找所有符合当前所选的内容进行多重编辑
+⌘⇧F  在所有打开的文件中进行查找
+拆分窗口/标签页
+
+⌘⌥1  单列
+⌘⌥2  双列
+⌘⌥5  网格 (4组)
+⌃[1,2,3,4]   焦点移动至相应组
+⌃⇧[1,2,3,4]  将当前文件移动至相应组
+⌘[1,2,3…]  选择相应标签页
+</code></pre>
+
+<h2>书签</h2>
+
+<pre><code>⌘F2  添加/去除书签
+F2   下一个书签
+⇧F2  前一个书签
+⌘⇧F2   清除书签
+</code></pre>
+
+<h2>标记</h2>
+
+<pre><code>⌘K space   设置标记
+⌘KW  从光标位置删除至标记
+⌘KA  从光标位置选择至标记
+⌘KG  清除标记
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim-show-16-bit]]></title>
+    <link href="http://ltl3884.github.io/blog/20120530/vim-show-16-bit.html/"/>
+    <updated>2012-05-30T17:10:10+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120530/vim-show-16-bit</id>
+    <content type="html"><![CDATA[<p>一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件:</p>
+
+<pre><code>vim -b datafile
+</code></pre>
+
+<p>现在用 xxd 把这个文件转换成十六进制:</p>
+
+<pre><code>:%!xxd
+</code></pre>
+
+<p>文本看起来像这样:</p>
+
+<pre><code>0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49 ….9..;..tt.+NI 0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30
+K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9 7;’1.”…..i.59.
+</code></pre>
+
+<p>现在你可以随心所欲地阅读和编辑这些文本了。 Vim 把这些信息当作普通文本来对待。 修改了十六进制部分并不导致可打印字符部分的改变，反之亦然。 最后, 用下面的命令把它转换回来:</p>
+
+<pre><code>:%!xxd -r
+</code></pre>
+
+<p>只有十六进制部分的修改才会被采用。右边可打印文本部分的修改忽略不计。</p>
+
+<p>欲知更多详情，参见 xxd 手册。</p>
+]]></content>
+  </entry>
+  
+</feed>

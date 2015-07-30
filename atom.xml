@@ -1,86 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>ltl3884</title>
-  <meta name="author" content="ltl3884">
-
-  
-  <meta name="description" content="　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
-这就像把螺丝刀当锤子用，也能把活干完，但肯定干的差极了，花费很长时间，还会弄坏螺丝刀。 　　想想常见的Git工作流程是怎么失效的吧。 　　 &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://ltl3884.github.io/index.html">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="ltl3884" type="application/atom+xml">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
-
-
-
-
-  
-
-  <style>html{background: url(/images/background.png) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-</hgroup>
-
-</header>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[ltl3884]]></title>
+  <link href="http://ltl3884.github.io/atom.xml" rel="self"/>
+  <link href="http://ltl3884.github.io/"/>
+  <updated>2015-07-30T16:23:35+08:00</updated>
+  <id>http://ltl3884.github.io/</id>
+  <author>
+    <name><![CDATA[ltl3884]]></name>
     
-      <h1 class="entry-title"><a href="/blog/20141114/git-work-flow.html/">Git工作流程(转)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-11-14T11:02:49+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
+  <entry>
+    <title type="html"><![CDATA[git工作流程(转)]]></title>
+    <link href="http://ltl3884.github.io/blog/20141114/git-work-flow.html/"/>
+    <updated>2014-11-14T11:02:49+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20141114/git-work-flow</id>
+    <content type="html"><![CDATA[<p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
 这就像把螺丝刀当锤子用，也能把活干完，但肯定干的差极了，花费很长时间，还会弄坏螺丝刀。</p>
 
 <p>　　想想常见的Git工作流程是怎么失效的吧。</p>
@@ -214,42 +152,15 @@ git reset
 <h3>总结</h3>
 
 <p>　　如果你在与Git的默认设置背道而驰，先问问为什么。将公共分支历史看做不可变的、原子性的、容易追溯的。将私有分支历史看做一次性的、可编辑的。推荐的工作流程是：  基于公共分支创建一个私有分支。 经常向这个私有分支commit代码。一旦你的代码完善了，就清理掉私有分支的历史。 将干净的私有分支merge到公共分支中。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-22T10:56:34+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <entry>
+    <title type="html"><![CDATA[Ruby中的||=操作符]]></title>
+    <link href="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/"/>
+    <updated>2013-07-22T10:56:34+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130722/ruby-or-and</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">current_user</span>
@@ -334,42 +245,15 @@ git reset
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-03T10:50:10+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>/etc/profile:</p>
+  <entry>
+    <title type="html"><![CDATA[关于bash_profile和bashrc]]></title>
+    <link href="http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc.html/"/>
+    <updated>2013-06-03T10:50:10+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc</id>
+    <content type="html"><![CDATA[<p>/etc/profile:</p>
 
 <pre><code>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 
 并从/etc/profile.d目录的配置文件中搜集shell的设置.
@@ -388,42 +272,15 @@ bash_logout:当每次退出系统(退出bash shell)时,执行该文件.
 <p>另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承/etc/profile中的变量,他们是”父子”关系.</p>
 
 <p>~/.bash_profile 是交互式、login 方式进入 bash 运行的 ~/.bashrc 是交互式 non-login 方式进入 bash 运行的 通常二者设置大致相同，所以通常前者会调用后者。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-28T10:46:40+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>编辑命令</h3>
+  <entry>
+    <title type="html"><![CDATA[让你提升命令行效率的 Bash 快捷键]]></title>
+    <link href="http://ltl3884.github.io/blog/20130528/quick-bash.html/"/>
+    <updated>2013-05-28T10:46:40+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130528/quick-bash</id>
+    <content type="html"><![CDATA[<h3>编辑命令</h3>
 
 <pre><code>Ctrl + a ：移到命令行首
 Ctrl + e ：移到命令行尾
@@ -479,42 +336,15 @@ Ctrl + z：挂起命令
 ^blah^foo：将上一条命令中的 blah 替换为 foo
 ^blah^foo^：将上一条命令中所有的 blah 都替换为 foo
 </code></pre>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130322/avoid-bundle-exec.html/">Avoid-bundle-exec</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>1.为什么会出现bundle exec的情况？</p>
+  <entry>
+    <title type="html"><![CDATA[avoid-bundle-exec]]></title>
+    <link href="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/"/>
+    <updated>2013-03-22T10:42:29+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130322/avoid-bundle-exec</id>
+    <content type="html"><![CDATA[<p>1.为什么会出现bundle exec的情况？</p>
 
 <p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>
 
@@ -531,84 +361,30 @@ $ bundle install --without production --binstubs=./bundler_stubs
 <p>这些命令能够神奇地让RVM和Bundler结合在一起，这样就可以确保，像rake和raspec这样的命令，自动并且正确地执行本地环境。</p>
 
 <p>最后, 因为bundler_sutbs是与本地配置有关的文件, 所以最好将其加到.gitignore中</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130308/git-show-file-changed.html/">Git-show-file-changed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-08T10:36:20+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>
+  <entry>
+    <title type="html"><![CDATA[git-show-file-changed]]></title>
+    <link href="http://ltl3884.github.io/blog/20130308/git-show-file-changed.html/"/>
+    <updated>2013-03-08T10:36:20+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130308/git-show-file-changed</id>
+    <content type="html"><![CDATA[<h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>
 
 <h4>git diff HEAD 工作区和HEAD（当前工作分支）相比的差异</h4>
 
 <h4>git diff –cached （或–staged）提交暂存区（提交任务，stage）和版本库中文件的差异</h4>
 
 <h4>git status 显示状态 -s表示用精简方式 -b同时显示当前工作分支的名称</h4>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120817/open-file-mode.html/">Open-file-mode</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>r</h2>
+  <entry>
+    <title type="html"><![CDATA[open-file-mode]]></title>
+    <link href="http://ltl3884.github.io/blog/20120817/open-file-mode.html/"/>
+    <updated>2012-08-17T10:33:04+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120817/open-file-mode</id>
+    <content type="html"><![CDATA[<h2>r</h2>
 
 <pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
 This is the default mode.
@@ -646,42 +422,15 @@ The file pointer is at the end of the file if the file exists.
 The file opens in the append mode. 
 If the file does not exist, it creates a new file for reading and writing.
 </code></pre>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120813/textmate-shortcuts.html/">Textmate-shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-13T10:28:18+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>TextMate 快捷键</p>
+  <entry>
+    <title type="html"><![CDATA[textmate-shortcuts]]></title>
+    <link href="http://ltl3884.github.io/blog/20120813/textmate-shortcuts.html/"/>
+    <updated>2012-08-13T10:28:18+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120813/textmate-shortcuts</id>
+    <content type="html"><![CDATA[<p>TextMate 快捷键</p>
 
 <pre><code>cmd + option + L    显示行号
 cmd + F            页面搜索文字
@@ -747,42 +496,15 @@ F2                        在标记间切换
 tab     输入def按tab它会自动补全end
 esc     以该文件中已经出现过的词做自动补全，可以按多次esc切换单词
 </code></pre>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120813/sublime-text-2-useful-shortcuts.html/">Sublime-text-2-useful-shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-13T10:20:36+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>打开/前往</h2>
+  <entry>
+    <title type="html"><![CDATA[sublime-text-2-useful-shortcuts]]></title>
+    <link href="http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts.html/"/>
+    <updated>2012-08-13T10:20:36+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts</id>
+    <content type="html"><![CDATA[<h2>打开/前往</h2>
 
 <pre><code>⌘T     前往文件
 ⌘⌃P  前往项目
@@ -853,42 +575,15 @@ F2   下一个书签
 ⌘KA  从光标位置选择至标记
 ⌘KG  清除标记
 </code></pre>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120809/install-octopress.html/">Install-octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-09T17:22:14+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
+  <entry>
+    <title type="html"><![CDATA[install-octopress]]></title>
+    <link href="http://ltl3884.github.io/blog/20120809/install-octopress.html/"/>
+    <updated>2012-08-09T17:22:14+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120809/install-octopress</id>
+    <content type="html"><![CDATA[<p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
 
 <p>使用静态页面，不使用数据库； 可以轻松使用makedown标记语言编写文章； 可以与git紧密集成，方便进行博客的版本管理； 可以于Github Pages集成，不需要单独的web hosting，只要你有github帐号即可。 Octopress 安装</p>
 
@@ -968,164 +663,39 @@ rake preview
 
 
 <p>以后发博客只需要在本地用命令就OK了</p>
-</div>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[vim-show-16-bit]]></title>
+    <link href="http://ltl3884.github.io/blog/20120530/vim-show-16-bit.html/"/>
+    <updated>2012-05-30T17:10:10+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20120530/vim-show-16-bit</id>
+    <content type="html"><![CDATA[<p>一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件:</p>
+
+<pre><code>vim -b datafile
+</code></pre>
+
+<p>现在用 xxd 把这个文件转换成十六进制:</p>
+
+<pre><code>:%!xxd
+</code></pre>
+
+<p>文本看起来像这样:</p>
+
+<pre><code>0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49 ….9..;..tt.+NI 0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30
+K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9 7;’1.”…..i.59.
+</code></pre>
+
+<p>现在你可以随心所欲地阅读和编辑这些文本了。 Vim 把这些信息当作普通文本来对待。 修改了十六进制部分并不导致可打印字符部分的改变，反之亦然。 最后, 用下面的命令把它转换回来:</p>
+
+<pre><code>:%!xxd -r
+</code></pre>
+
+<p>只有十六进制部分的修改才会被采用。右边可打印文本部分的修改忽略不计。</p>
+
+<p>欲知更多详情，参见 xxd 手册。</p>
+]]></content>
+  </entry>
   
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="2">&larr; Older</a>
-    
-    <a href="/blog/archives/"> Archives </a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>About Me</h1>
-  <p>ruby developer</p>
-</section>
-<section id="titles">
-  <a href="http://ltl3884.github.io" title="ltl3884"><img id="logo" src="http://ltl3884.github.io/images/apple.png" /></a>
-  <h1 id="site_title"><a href="http://ltl3884.github.io" title="ltl3884">ltl3884</a></h1>
-  <h3 id="site_subtitle"></h3>
-</section>
-
-<section id="menu">
-  <ul>
-    <li><i class="fa fa-home fa-lg"></i><a href="http://ltl3884.github.io"> Home </a></li>
-    <li><i class="fa fa-calendar fa-lg"></i><a href="http://ltl3884.github.io/blog/archives/"> Archives </a></li>
-    <li><i class="fa fa-user fa-lg"></i><a href="http://ltl3884.github.io/about/"> About </a></li>
-    <li><i class="fa fa-rss fa-lg"></i><a href="http://ltl3884.github.io/atom.xml"> Feed </a></li>
-  </ul>
-</section>
-
-<section id="social">
-  
-
-  
-
-  
-
-  
-    <a href="https://github.com/ltl3884" title="ltl3884"><i class="fa fa-github fa-2x"></i></a>
-  
-
-  
-
-  
-</section>
-
-
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/20141114/git-work-flow.html/">git工作流程(转)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130322/avoid-bundle-exec.html/">avoid-bundle-exec</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/ltl3884">@ltl3884</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'ltl3884',
-            count: 3,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - ltl3884 -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'ltl3884';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

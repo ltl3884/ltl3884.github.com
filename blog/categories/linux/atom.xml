@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类linux | ltl3884]]></title>
+  <link href="http://ltl3884.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://ltl3884.github.io/"/>
+  <updated>2015-07-30T16:23:35+08:00</updated>
+  <id>http://ltl3884.github.io/</id>
+  <author>
+    <name><![CDATA[ltl3884]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[关于bash_profile和bashrc]]></title>
+    <link href="http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc.html/"/>
+    <updated>2013-06-03T10:50:10+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc</id>
+    <content type="html"><![CDATA[<p>/etc/profile:</p>
+
+<pre><code>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 
+并从/etc/profile.d目录的配置文件中搜集shell的设置.
+</code></pre>
+
+<p>/etc/bashrc:</p>
+
+<pre><code>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取. ~/.
+bash_profile:每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,
+该 文件仅仅执行一次!默认情况下,他设置一些环境变量,
+执行用户的.bashrc文件. ~/.bashrc:该文件包含专用于你的bash shell的bash信息,
+当登录时以及每次打开新的shell时,该 该文件被读取. ~/.
+bash_logout:当每次退出系统(退出bash shell)时,执行该文件.  
+</code></pre>
+
+<p>另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承/etc/profile中的变量,他们是”父子”关系.</p>
+
+<p>~/.bash_profile 是交互式、login 方式进入 bash 运行的 ~/.bashrc 是交互式 non-login 方式进入 bash 运行的 通常二者设置大致相同，所以通常前者会调用后者。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[让你提升命令行效率的 Bash 快捷键]]></title>
+    <link href="http://ltl3884.github.io/blog/20130528/quick-bash.html/"/>
+    <updated>2013-05-28T10:46:40+08:00</updated>
+    <id>http://ltl3884.github.io/blog/20130528/quick-bash</id>
+    <content type="html"><![CDATA[<h3>编辑命令</h3>
+
+<pre><code>Ctrl + a ：移到命令行首
+Ctrl + e ：移到命令行尾
+Ctrl + f ：按字符前移（右向）
+Ctrl + b ：按字符后移（左向）
+Alt + f ：按单词前移（右向）
+Alt + b ：按单词后移（左向）
+Ctrl + xx：在命令行首和光标之间移动
+Ctrl + u ：从光标处删除至命令行首
+Ctrl + k ：从光标处删除至命令行尾
+Ctrl + w ：从光标处删除至字首
+Alt + d ：从光标处删除至字尾
+Ctrl + d ：删除光标处的字符
+Ctrl + h ：删除光标前的字符
+Ctrl + y ：粘贴至光标后
+Alt + c ：从光标处更改为首字母大写的单词
+Alt + u ：从光标处更改为全部大写的单词
+Alt + l ：从光标处更改为全部小写的单词
+Ctrl + t ：交换光标处和之前的字符
+Alt + t ：交换光标处和之前的单词
+Alt + Backspace：与 Ctrl + w 相同类似，分隔符有些差别 [感谢 rezilla 指正]
+</code></pre>
+
+<h3>重新执行命令</h3>
+
+<pre><code>Ctrl + r：逆向搜索命令历史
+Ctrl + g：从历史搜索模式退出
+Ctrl + p：历史中的上一条命令
+Ctrl + n：历史中的下一条命令
+Alt + .：使用上一条命令的最后一个参数
+</code></pre>
+
+<h3>控制命令</h3>
+
+<pre><code>Ctrl + l：清屏
+Ctrl + o：执行当前命令，并选择上一条命令
+Ctrl + s：阻止屏幕输出
+Ctrl + q：允许屏幕输出
+Ctrl + c：终止命令
+Ctrl + z：挂起命令
+</code></pre>
+
+<h3>Bang (!) 命令</h3>
+
+<pre><code>!!：执行上一条命令
+!blah：执行最近的以 blah 开头的命令，如 !ls
+!blah:p：仅打印输出，而不执行
+!$：上一条命令的最后一个参数，与 Alt + . 相同
+!$:p：打印输出 !$ 的内容
+!*：上一条命令的所有参数
+!*:p：打印输出 !* 的内容
+^blah：删除上一条命令中的 blah
+^blah^foo：将上一条命令中的 blah 替换为 foo
+^blah^foo^：将上一条命令中所有的 blah 都替换为 foo
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
