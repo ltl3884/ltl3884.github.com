@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[分类rails | ltl3884]]></title>
-  <link href="http://ltl3884.github.io/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T17:00:00+08:00</updated>
-  <id>http://ltl3884.github.io/</id>
+  <link href="http://ltl3884.me/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2015-07-30T17:07:45+08:00</updated>
+  <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[avoid-bundle-exec]]></title>
-    <link href="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/"/>
+    <link href="http://ltl3884.me/blog/20130322/avoid-bundle-exec/"/>
     <updated>2013-03-22T10:42:29+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130322/avoid-bundle-exec</id>
+    <id>http://ltl3884.me/blog/20130322/avoid-bundle-exec</id>
     <content type="html"><![CDATA[<p>1.为什么会出现bundle exec的情况？</p>
 
 <p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>

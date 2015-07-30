@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://ltl3884.github.io/sitemap.xml 
+Sitemap: http://ltl3884.me/sitemap.xml 

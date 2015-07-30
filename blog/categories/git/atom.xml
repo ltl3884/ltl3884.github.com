@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[分类git | ltl3884]]></title>
-  <link href="http://ltl3884.github.io/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T17:00:00+08:00</updated>
-  <id>http://ltl3884.github.io/</id>
+  <link href="http://ltl3884.me/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2015-07-30T17:07:45+08:00</updated>
+  <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[git工作流程(转)]]></title>
-    <link href="http://ltl3884.github.io/blog/20141114/git-work-flow/"/>
+    <link href="http://ltl3884.me/blog/20141114/git-work-flow/"/>
     <updated>2014-11-14T11:02:49+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20141114/git-work-flow</id>
+    <id>http://ltl3884.me/blog/20141114/git-work-flow</id>
     <content type="html"><![CDATA[<p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
 这就像把螺丝刀当锤子用，也能把活干完，但肯定干的差极了，花费很长时间，还会弄坏螺丝刀。</p>
 
@@ -157,9 +157,9 @@ git reset
   
   <entry>
     <title type="html"><![CDATA[git-show-file-changed]]></title>
-    <link href="http://ltl3884.github.io/blog/20130308/git-show-file-changed/"/>
+    <link href="http://ltl3884.me/blog/20130308/git-show-file-changed/"/>
     <updated>2013-03-08T10:36:20+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130308/git-show-file-changed</id>
+    <id>http://ltl3884.me/blog/20130308/git-show-file-changed</id>
     <content type="html"><![CDATA[<h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>
 
 <h4>git diff HEAD 工作区和HEAD（当前工作分支）相比的差异</h4>

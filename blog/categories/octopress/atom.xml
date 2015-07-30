@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[分类octopress | ltl3884]]></title>
-  <link href="http://ltl3884.github.io/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T17:00:00+08:00</updated>
-  <id>http://ltl3884.github.io/</id>
+  <link href="http://ltl3884.me/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2015-07-30T17:07:45+08:00</updated>
+  <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[install-octopress]]></title>
-    <link href="http://ltl3884.github.io/blog/20120809/install-octopress/"/>
+    <link href="http://ltl3884.me/blog/20120809/install-octopress/"/>
     <updated>2012-08-09T17:22:14+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120809/install-octopress</id>
+    <id>http://ltl3884.me/blog/20120809/install-octopress</id>
     <content type="html"><![CDATA[<p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
 
 <p>使用静态页面，不使用数据库； 可以轻松使用makedown标记语言编写文章； 可以与git紧密集成，方便进行博客的版本管理； 可以于Github Pages集成，不需要单独的web hosting，只要你有github帐号即可。 Octopress 安装</p>

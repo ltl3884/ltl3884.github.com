@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[ltl3884]]></title>
-  <link href="http://ltl3884.github.io/atom.xml" rel="self"/>
-  <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T17:00:00+08:00</updated>
-  <id>http://ltl3884.github.io/</id>
+  <link href="http://ltl3884.me/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2015-07-30T17:07:45+08:00</updated>
+  <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[git工作流程(转)]]></title>
-    <link href="http://ltl3884.github.io/blog/20141114/git-work-flow/"/>
+    <link href="http://ltl3884.me/blog/20141114/git-work-flow/"/>
     <updated>2014-11-14T11:02:49+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20141114/git-work-flow</id>
+    <id>http://ltl3884.me/blog/20141114/git-work-flow</id>
     <content type="html"><![CDATA[<p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
 这就像把螺丝刀当锤子用，也能把活干完，但肯定干的差极了，花费很长时间，还会弄坏螺丝刀。</p>
 
@@ -157,9 +157,9 @@ git reset
   
   <entry>
     <title type="html"><![CDATA[Ruby中的||=操作符]]></title>
-    <link href="http://ltl3884.github.io/blog/20130722/ruby-or-and/"/>
+    <link href="http://ltl3884.me/blog/20130722/ruby-or-and/"/>
     <updated>2013-07-22T10:56:34+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130722/ruby-or-and</id>
+    <id>http://ltl3884.me/blog/20130722/ruby-or-and</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -250,9 +250,9 @@ git reset
   
   <entry>
     <title type="html"><![CDATA[关于bash_profile和bashrc]]></title>
-    <link href="http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc/"/>
+    <link href="http://ltl3884.me/blog/20130603/bash-profile-and-bashrc/"/>
     <updated>2013-06-03T10:50:10+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc</id>
+    <id>http://ltl3884.me/blog/20130603/bash-profile-and-bashrc</id>
     <content type="html"><![CDATA[<p>/etc/profile:</p>
 
 <pre><code>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 
@@ -277,9 +277,9 @@ bash_logout:当每次退出系统(退出bash shell)时,执行该文件.
   
   <entry>
     <title type="html"><![CDATA[让你提升命令行效率的 Bash 快捷键]]></title>
-    <link href="http://ltl3884.github.io/blog/20130528/quick-bash/"/>
+    <link href="http://ltl3884.me/blog/20130528/quick-bash/"/>
     <updated>2013-05-28T10:46:40+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130528/quick-bash</id>
+    <id>http://ltl3884.me/blog/20130528/quick-bash</id>
     <content type="html"><![CDATA[<h3>编辑命令</h3>
 
 <pre><code>Ctrl + a ：移到命令行首
@@ -341,9 +341,9 @@ Ctrl + z：挂起命令
   
   <entry>
     <title type="html"><![CDATA[avoid-bundle-exec]]></title>
-    <link href="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/"/>
+    <link href="http://ltl3884.me/blog/20130322/avoid-bundle-exec/"/>
     <updated>2013-03-22T10:42:29+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130322/avoid-bundle-exec</id>
+    <id>http://ltl3884.me/blog/20130322/avoid-bundle-exec</id>
     <content type="html"><![CDATA[<p>1.为什么会出现bundle exec的情况？</p>
 
 <p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>
@@ -366,9 +366,9 @@ $ bundle install --without production --binstubs=./bundler_stubs
   
   <entry>
     <title type="html"><![CDATA[git-show-file-changed]]></title>
-    <link href="http://ltl3884.github.io/blog/20130308/git-show-file-changed/"/>
+    <link href="http://ltl3884.me/blog/20130308/git-show-file-changed/"/>
     <updated>2013-03-08T10:36:20+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20130308/git-show-file-changed</id>
+    <id>http://ltl3884.me/blog/20130308/git-show-file-changed</id>
     <content type="html"><![CDATA[<h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>
 
 <h4>git diff HEAD 工作区和HEAD（当前工作分支）相比的差异</h4>
@@ -381,9 +381,9 @@ $ bundle install --without production --binstubs=./bundler_stubs
   
   <entry>
     <title type="html"><![CDATA[open-file-mode]]></title>
-    <link href="http://ltl3884.github.io/blog/20120817/open-file-mode/"/>
+    <link href="http://ltl3884.me/blog/20120817/open-file-mode/"/>
     <updated>2012-08-17T10:33:04+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120817/open-file-mode</id>
+    <id>http://ltl3884.me/blog/20120817/open-file-mode</id>
     <content type="html"><![CDATA[<h2>r</h2>
 
 <pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
@@ -427,9 +427,9 @@ If the file does not exist, it creates a new file for reading and writing.
   
   <entry>
     <title type="html"><![CDATA[textmate-shortcuts]]></title>
-    <link href="http://ltl3884.github.io/blog/20120813/textmate-shortcuts/"/>
+    <link href="http://ltl3884.me/blog/20120813/textmate-shortcuts/"/>
     <updated>2012-08-13T10:28:18+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120813/textmate-shortcuts</id>
+    <id>http://ltl3884.me/blog/20120813/textmate-shortcuts</id>
     <content type="html"><![CDATA[<p>TextMate 快捷键</p>
 
 <pre><code>cmd + option + L    显示行号
@@ -501,9 +501,9 @@ esc     以该文件中已经出现过的词做自动补全，可以按多次esc
   
   <entry>
     <title type="html"><![CDATA[sublime-text-2-useful-shortcuts]]></title>
-    <link href="http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts/"/>
+    <link href="http://ltl3884.me/blog/20120813/sublime-text-2-useful-shortcuts/"/>
     <updated>2012-08-13T10:20:36+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts</id>
+    <id>http://ltl3884.me/blog/20120813/sublime-text-2-useful-shortcuts</id>
     <content type="html"><![CDATA[<h2>打开/前往</h2>
 
 <pre><code>⌘T     前往文件
@@ -580,9 +580,9 @@ F2   下一个书签
   
   <entry>
     <title type="html"><![CDATA[install-octopress]]></title>
-    <link href="http://ltl3884.github.io/blog/20120809/install-octopress/"/>
+    <link href="http://ltl3884.me/blog/20120809/install-octopress/"/>
     <updated>2012-08-09T17:22:14+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120809/install-octopress</id>
+    <id>http://ltl3884.me/blog/20120809/install-octopress</id>
     <content type="html"><![CDATA[<p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
 
 <p>使用静态页面，不使用数据库； 可以轻松使用makedown标记语言编写文章； 可以与git紧密集成，方便进行博客的版本管理； 可以于Github Pages集成，不需要单独的web hosting，只要你有github帐号即可。 Octopress 安装</p>
@@ -668,9 +668,9 @@ rake preview
   
   <entry>
     <title type="html"><![CDATA[vim-show-16-bit]]></title>
-    <link href="http://ltl3884.github.io/blog/20120530/vim-show-16-bit/"/>
+    <link href="http://ltl3884.me/blog/20120530/vim-show-16-bit/"/>
     <updated>2012-05-30T17:10:10+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120530/vim-show-16-bit</id>
+    <id>http://ltl3884.me/blog/20120530/vim-show-16-bit</id>
     <content type="html"><![CDATA[<p>一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件:</p>
 
 <pre><code>vim -b datafile

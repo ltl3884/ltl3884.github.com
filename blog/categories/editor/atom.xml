@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[分类editor | ltl3884]]></title>
-  <link href="http://ltl3884.github.io/blog/categories/editor/atom.xml" rel="self"/>
-  <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T17:00:00+08:00</updated>
-  <id>http://ltl3884.github.io/</id>
+  <link href="http://ltl3884.me/blog/categories/editor/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2015-07-30T17:07:45+08:00</updated>
+  <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[textmate-shortcuts]]></title>
-    <link href="http://ltl3884.github.io/blog/20120813/textmate-shortcuts/"/>
+    <link href="http://ltl3884.me/blog/20120813/textmate-shortcuts/"/>
     <updated>2012-08-13T10:28:18+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120813/textmate-shortcuts</id>
+    <id>http://ltl3884.me/blog/20120813/textmate-shortcuts</id>
     <content type="html"><![CDATA[<p>TextMate 快捷键</p>
 
 <pre><code>cmd + option + L    显示行号
@@ -89,9 +89,9 @@ esc     以该文件中已经出现过的词做自动补全，可以按多次esc
   
   <entry>
     <title type="html"><![CDATA[sublime-text-2-useful-shortcuts]]></title>
-    <link href="http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts/"/>
+    <link href="http://ltl3884.me/blog/20120813/sublime-text-2-useful-shortcuts/"/>
     <updated>2012-08-13T10:20:36+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120813/sublime-text-2-useful-shortcuts</id>
+    <id>http://ltl3884.me/blog/20120813/sublime-text-2-useful-shortcuts</id>
     <content type="html"><![CDATA[<h2>打开/前往</h2>
 
 <pre><code>⌘T     前往文件
@@ -168,9 +168,9 @@ F2   下一个书签
   
   <entry>
     <title type="html"><![CDATA[vim-show-16-bit]]></title>
-    <link href="http://ltl3884.github.io/blog/20120530/vim-show-16-bit/"/>
+    <link href="http://ltl3884.me/blog/20120530/vim-show-16-bit/"/>
     <updated>2012-05-30T17:10:10+08:00</updated>
-    <id>http://ltl3884.github.io/blog/20120530/vim-show-16-bit</id>
+    <id>http://ltl3884.me/blog/20120530/vim-show-16-bit</id>
     <content type="html"><![CDATA[<p>一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件:</p>
 
 <pre><code>vim -b datafile
