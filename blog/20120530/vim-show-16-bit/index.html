@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>avoid-bundle-exec - ltl3884</title>
+  <title>vim-show-16-bit - ltl3884</title>
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="1.为什么会出现bundle exec的情况？ bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时， &hellip;">
+  <meta name="description" content="一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件: vim -b datafile 现在用 xxd 把这个文件转换成十六进制: :%!xxd &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/">
+  <link rel="canonical" href="http://ltl3884.github.io/blog/20120530/vim-show-16-bit/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -53,7 +53,7 @@
   
   <header>
     
-      <h1 class="entry-title">Avoid-bundle-exec</h1>
+      <h1 class="entry-title">Vim-show-16-bit</h1>
     
     
       <p class="meta">
@@ -69,30 +69,37 @@
   
 
 
-<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
+<time datetime="2012-05-30T17:10:10+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>1.为什么会出现bundle exec的情况？</p>
+<div class="entry-content"><p>一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件:</p>
 
-<p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>
-
-<p>2.解决方案：RVM与bundler集成</p>
-
-<p>这也是首选方案，如果在Windows环境下开发的话，这个方法并不适合，强烈建议抛弃windows，否则后患无穷。说正题， 为了能够让RVM正确地自动执行本地环境，需要进行如下步骤 运行</p>
-
-<pre><code>$ rvm get head &amp;&amp; rvm reload
-$ chmod +x $rvm_path/hooks/after_cd_bundler
-$ cd ~/rails_projects/sample_app
-$ bundle install --without production --binstubs=./bundler_stubs
+<pre><code>vim -b datafile
 </code></pre>
 
-<p>这些命令能够神奇地让RVM和Bundler结合在一起，这样就可以确保，像rake和raspec这样的命令，自动并且正确地执行本地环境。</p>
+<p>现在用 xxd 把这个文件转换成十六进制:</p>
 
-<p>最后, 因为bundler_sutbs是与本地配置有关的文件, 所以最好将其加到.gitignore中</p>
+<pre><code>:%!xxd
+</code></pre>
+
+<p>文本看起来像这样:</p>
+
+<pre><code>0000000: 1f8b 0808 39d7 173b 0203 7474 002b 4e49 ….9..;..tt.+NI 0000010: 4b2c 8660 eb9c ecac c462 eb94 345e 2e30
+K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 1035 39d9 7;’1.”…..i.59.
+</code></pre>
+
+<p>现在你可以随心所欲地阅读和编辑这些文本了。 Vim 把这些信息当作普通文本来对待。 修改了十六进制部分并不导致可打印字符部分的改变，反之亦然。 最后, 用下面的命令把它转换回来:</p>
+
+<pre><code>:%!xxd -r
+</code></pre>
+
+<p>只有十六进制部分的修改才会被采用。右边可打印文本部分的修改忽略不计。</p>
+
+<p>欲知更多详情，参见 xxd 手册。</p>
 </div>
 
 
@@ -115,12 +122,12 @@ $ bundle install --without production --binstubs=./bundler_stubs
   
 
 
-<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
+<time datetime="2012-05-30T17:10:10+08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rails/'>rails</a>
+    <a class='category' href='/blog/categories/editor/'>editor</a>
   
 </span>
 
@@ -129,7 +136,7 @@ $ bundle install --without production --binstubs=./bundler_stubs
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/" data-via="" data-counturl="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20120530/vim-show-16-bit/" data-via="" data-counturl="http://ltl3884.github.io/blog/20120530/vim-show-16-bit/" >Tweet</a>
   
   
   
@@ -138,10 +145,8 @@ $ bundle install --without production --binstubs=./bundler_stubs
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/20130308/git-show-file-changed.html/" title="Previous Post: git-show-file-changed">&laquo; git-show-file-changed</a>
       
-      
-        <a class="basic-alignment right" href="/blog/20130528/quick-bash.html/" title="Next Post: 让你提升命令行效率的 Bash 快捷键">让你提升命令行效率的 Bash 快捷键 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/20120809/install-octopress/" title="Next Post: install-octopress">install-octopress &raquo;</a>
       
     </p>
   </footer>
@@ -198,23 +203,23 @@ $ bundle install --without production --binstubs=./bundler_stubs
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/20141114/git-work-flow.html/">git工作流程(转)</a>
+        <a href="/blog/20141114/git-work-flow/">git工作流程(转)</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a>
+        <a href="/blog/20130722/ruby-or-and/">Ruby中的||=操作符</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a>
+        <a href="/blog/20130603/bash-profile-and-bashrc/">关于bash_profile和bashrc</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a>
+        <a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130322/avoid-bundle-exec.html/">avoid-bundle-exec</a>
+        <a href="/blog/20130322/avoid-bundle-exec/">avoid-bundle-exec</a>
       </li>
     
   </ul>
@@ -272,8 +277,8 @@ $ bundle install --without production --binstubs=./bundler_stubs
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/';
-        var disqus_url = 'http://ltl3884.github.io/blog/20130322/avoid-bundle-exec.html/';
+        var disqus_identifier = 'http://ltl3884.github.io/blog/20120530/vim-show-16-bit/';
+        var disqus_url = 'http://ltl3884.github.io/blog/20120530/vim-show-16-bit/';
         var disqus_script = 'embed.js';
       
     (function () {

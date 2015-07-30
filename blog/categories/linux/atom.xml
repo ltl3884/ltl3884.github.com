@@ -4,7 +4,7 @@
   <title><![CDATA[分类linux | ltl3884]]></title>
   <link href="http://ltl3884.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T16:53:11+08:00</updated>
+  <updated>2015-07-30T17:00:00+08:00</updated>
   <id>http://ltl3884.github.io/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[关于bash_profile和bashrc]]></title>
-    <link href="http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc.html/"/>
+    <link href="http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc/"/>
     <updated>2013-06-03T10:50:10+08:00</updated>
     <id>http://ltl3884.github.io/blog/20130603/bash-profile-and-bashrc</id>
     <content type="html"><![CDATA[<p>/etc/profile:</p>
@@ -42,7 +42,7 @@ bash_logout:当每次退出系统(退出bash shell)时,执行该文件.
   
   <entry>
     <title type="html"><![CDATA[让你提升命令行效率的 Bash 快捷键]]></title>
-    <link href="http://ltl3884.github.io/blog/20130528/quick-bash.html/"/>
+    <link href="http://ltl3884.github.io/blog/20130528/quick-bash/"/>
     <updated>2013-05-28T10:46:40+08:00</updated>
     <id>http://ltl3884.github.io/blog/20130528/quick-bash</id>
     <content type="html"><![CDATA[<h3>编辑命令</h3>

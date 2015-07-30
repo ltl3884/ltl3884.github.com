@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>open-file-mode - ltl3884</title>
+  <title>avoid-bundle-exec - ltl3884</title>
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="r Read-only mode. The file pointer is placed at the beginning of the file. This is the default mode. r+ Read-write mode. The file pointer will be at &hellip;">
+  <meta name="description" content="1.为什么会出现bundle exec的情况？ bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ltl3884.github.io/blog/20120817/open-file-mode.html/">
+  <link rel="canonical" href="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -53,7 +53,7 @@
   
   <header>
     
-      <h1 class="entry-title">Open-file-mode</h1>
+      <h1 class="entry-title">Avoid-bundle-exec</h1>
     
     
       <p class="meta">
@@ -69,51 +69,30 @@
   
 
 
-<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
+<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>r</h2>
+<div class="entry-content"><p>1.为什么会出现bundle exec的情况？</p>
 
-<pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
-This is the default mode.
+<p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>
+
+<p>2.解决方案：RVM与bundler集成</p>
+
+<p>这也是首选方案，如果在Windows环境下开发的话，这个方法并不适合，强烈建议抛弃windows，否则后患无穷。说正题， 为了能够让RVM正确地自动执行本地环境，需要进行如下步骤 运行</p>
+
+<pre><code>$ rvm get head &amp;&amp; rvm reload
+$ chmod +x $rvm_path/hooks/after_cd_bundler
+$ cd ~/rails_projects/sample_app
+$ bundle install --without production --binstubs=./bundler_stubs
 </code></pre>
 
-<h2>r+</h2>
+<p>这些命令能够神奇地让RVM和Bundler结合在一起，这样就可以确保，像rake和raspec这样的命令，自动并且正确地执行本地环境。</p>
 
-<pre><code>Read-write mode. The file pointer will be at the beginning of the file.
-</code></pre>
-
-<h2>w</h2>
-
-<pre><code>Write-only mode. Overwrites the file if the file exists. 
-If the file does not exist, creates a new file for writing.
-</code></pre>
-
-<h2>w+</h2>
-
-<pre><code>Read-write mode. Overwrites the existing file if the file exists. 
-If the file does not exist, creates a new file for reading and writing.
-</code></pre>
-
-<h2>a</h2>
-
-<pre><code>Write-only mode. 
-The file pointer is at the end of the file if the file exists. 
-That is, the file is in the append mode. 
-If the file does not exist, it creates a new file for writing.
-</code></pre>
-
-<h2>a+</h2>
-
-<pre><code>Read and write mode. 
-The file pointer is at the end of the file if the file exists. 
-The file opens in the append mode. 
-If the file does not exist, it creates a new file for reading and writing.
-</code></pre>
+<p>最后, 因为bundler_sutbs是与本地配置有关的文件, 所以最好将其加到.gitignore中</p>
 </div>
 
 
@@ -136,12 +115,12 @@ If the file does not exist, it creates a new file for reading and writing.
   
 
 
-<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
+<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/rails/'>rails</a>
   
 </span>
 
@@ -150,7 +129,7 @@ If the file does not exist, it creates a new file for reading and writing.
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20120817/open-file-mode.html/" data-via="" data-counturl="http://ltl3884.github.io/blog/20120817/open-file-mode.html/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/" data-via="" data-counturl="http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/" >Tweet</a>
   
   
   
@@ -159,10 +138,10 @@ If the file does not exist, it creates a new file for reading and writing.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/20120813/textmate-shortcuts.html/" title="Previous Post: textmate-shortcuts">&laquo; textmate-shortcuts</a>
+        <a class="basic-alignment left" href="/blog/20130308/git-show-file-changed/" title="Previous Post: git-show-file-changed">&laquo; git-show-file-changed</a>
       
       
-        <a class="basic-alignment right" href="/blog/20130308/git-show-file-changed.html/" title="Next Post: git-show-file-changed">git-show-file-changed &raquo;</a>
+        <a class="basic-alignment right" href="/blog/20130528/quick-bash/" title="Next Post: 让你提升命令行效率的 Bash 快捷键">让你提升命令行效率的 Bash 快捷键 &raquo;</a>
       
     </p>
   </footer>
@@ -219,23 +198,23 @@ If the file does not exist, it creates a new file for reading and writing.
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/20141114/git-work-flow.html/">git工作流程(转)</a>
+        <a href="/blog/20141114/git-work-flow/">git工作流程(转)</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a>
+        <a href="/blog/20130722/ruby-or-and/">Ruby中的||=操作符</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a>
+        <a href="/blog/20130603/bash-profile-and-bashrc/">关于bash_profile和bashrc</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a>
+        <a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130322/avoid-bundle-exec.html/">avoid-bundle-exec</a>
+        <a href="/blog/20130322/avoid-bundle-exec/">avoid-bundle-exec</a>
       </li>
     
   </ul>
@@ -293,8 +272,8 @@ If the file does not exist, it creates a new file for reading and writing.
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ltl3884.github.io/blog/20120817/open-file-mode.html/';
-        var disqus_url = 'http://ltl3884.github.io/blog/20120817/open-file-mode.html/';
+        var disqus_identifier = 'http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/';
+        var disqus_url = 'http://ltl3884.github.io/blog/20130322/avoid-bundle-exec/';
         var disqus_script = 'embed.js';
       
     (function () {

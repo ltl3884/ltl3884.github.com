@@ -4,7 +4,7 @@
   <title><![CDATA[分类git | ltl3884]]></title>
   <link href="http://ltl3884.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T16:53:11+08:00</updated>
+  <updated>2015-07-30T17:00:00+08:00</updated>
   <id>http://ltl3884.github.io/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[git工作流程(转)]]></title>
-    <link href="http://ltl3884.github.io/blog/20141114/git-work-flow.html/"/>
+    <link href="http://ltl3884.github.io/blog/20141114/git-work-flow/"/>
     <updated>2014-11-14T11:02:49+08:00</updated>
     <id>http://ltl3884.github.io/blog/20141114/git-work-flow</id>
     <content type="html"><![CDATA[<p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
@@ -157,7 +157,7 @@ git reset
   
   <entry>
     <title type="html"><![CDATA[git-show-file-changed]]></title>
-    <link href="http://ltl3884.github.io/blog/20130308/git-show-file-changed.html/"/>
+    <link href="http://ltl3884.github.io/blog/20130308/git-show-file-changed/"/>
     <updated>2013-03-08T10:36:20+08:00</updated>
     <id>http://ltl3884.github.io/blog/20130308/git-show-file-changed</id>
     <content type="html"><![CDATA[<h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>

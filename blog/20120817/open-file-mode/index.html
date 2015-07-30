@@ -5,18 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>让你提升命令行效率的 Bash 快捷键 - ltl3884</title>
+  <title>open-file-mode - ltl3884</title>
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="编辑命令 Ctrl + a ：移到命令行首
-Ctrl + e ：移到命令行尾
-Ctrl + f ：按字符前移（右向）
-Ctrl + b ：按字符后移（左向）
-Alt + f ：按单词前移（右向）
-Alt + b ：按单词后移（左向）
-Ctrl + xx：在命令行首和光标之间移动
-Ctrl + u &hellip;">
+  <meta name="description" content="r Read-only mode. The file pointer is placed at the beginning of the file. This is the default mode. r+ Read-write mode. The file pointer will be at &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +18,7 @@ Ctrl + u &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ltl3884.github.io/blog/20130528/quick-bash.html/">
+  <link rel="canonical" href="http://ltl3884.github.io/blog/20120817/open-file-mode/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -60,7 +53,7 @@ Ctrl + u &hellip;">
   
   <header>
     
-      <h1 class="entry-title">让你提升命令行效率的 Bash 快捷键</h1>
+      <h1 class="entry-title">Open-file-mode</h1>
     
     
       <p class="meta">
@@ -76,68 +69,50 @@ Ctrl + u &hellip;">
   
 
 
-<time datetime="2013-05-28T10:46:40+08:00" pubdate data-updated="true"></time>
+<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h3>编辑命令</h3>
+<div class="entry-content"><h2>r</h2>
 
-<pre><code>Ctrl + a ：移到命令行首
-Ctrl + e ：移到命令行尾
-Ctrl + f ：按字符前移（右向）
-Ctrl + b ：按字符后移（左向）
-Alt + f ：按单词前移（右向）
-Alt + b ：按单词后移（左向）
-Ctrl + xx：在命令行首和光标之间移动
-Ctrl + u ：从光标处删除至命令行首
-Ctrl + k ：从光标处删除至命令行尾
-Ctrl + w ：从光标处删除至字首
-Alt + d ：从光标处删除至字尾
-Ctrl + d ：删除光标处的字符
-Ctrl + h ：删除光标前的字符
-Ctrl + y ：粘贴至光标后
-Alt + c ：从光标处更改为首字母大写的单词
-Alt + u ：从光标处更改为全部大写的单词
-Alt + l ：从光标处更改为全部小写的单词
-Ctrl + t ：交换光标处和之前的字符
-Alt + t ：交换光标处和之前的单词
-Alt + Backspace：与 Ctrl + w 相同类似，分隔符有些差别 [感谢 rezilla 指正]
+<pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
+This is the default mode.
 </code></pre>
 
-<h3>重新执行命令</h3>
+<h2>r+</h2>
 
-<pre><code>Ctrl + r：逆向搜索命令历史
-Ctrl + g：从历史搜索模式退出
-Ctrl + p：历史中的上一条命令
-Ctrl + n：历史中的下一条命令
-Alt + .：使用上一条命令的最后一个参数
+<pre><code>Read-write mode. The file pointer will be at the beginning of the file.
 </code></pre>
 
-<h3>控制命令</h3>
+<h2>w</h2>
 
-<pre><code>Ctrl + l：清屏
-Ctrl + o：执行当前命令，并选择上一条命令
-Ctrl + s：阻止屏幕输出
-Ctrl + q：允许屏幕输出
-Ctrl + c：终止命令
-Ctrl + z：挂起命令
+<pre><code>Write-only mode. Overwrites the file if the file exists. 
+If the file does not exist, creates a new file for writing.
 </code></pre>
 
-<h3>Bang (!) 命令</h3>
+<h2>w+</h2>
 
-<pre><code>!!：执行上一条命令
-!blah：执行最近的以 blah 开头的命令，如 !ls
-!blah:p：仅打印输出，而不执行
-!$：上一条命令的最后一个参数，与 Alt + . 相同
-!$:p：打印输出 !$ 的内容
-!*：上一条命令的所有参数
-!*:p：打印输出 !* 的内容
-^blah：删除上一条命令中的 blah
-^blah^foo：将上一条命令中的 blah 替换为 foo
-^blah^foo^：将上一条命令中所有的 blah 都替换为 foo
+<pre><code>Read-write mode. Overwrites the existing file if the file exists. 
+If the file does not exist, creates a new file for reading and writing.
+</code></pre>
+
+<h2>a</h2>
+
+<pre><code>Write-only mode. 
+The file pointer is at the end of the file if the file exists. 
+That is, the file is in the append mode. 
+If the file does not exist, it creates a new file for writing.
+</code></pre>
+
+<h2>a+</h2>
+
+<pre><code>Read and write mode. 
+The file pointer is at the end of the file if the file exists. 
+The file opens in the append mode. 
+If the file does not exist, it creates a new file for reading and writing.
 </code></pre>
 </div>
 
@@ -161,12 +136,12 @@ Ctrl + z：挂起命令
   
 
 
-<time datetime="2013-05-28T10:46:40+08:00" pubdate data-updated="true"></time>
+<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/linux/'>linux</a>
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -175,7 +150,7 @@ Ctrl + z：挂起命令
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20130528/quick-bash.html/" data-via="" data-counturl="http://ltl3884.github.io/blog/20130528/quick-bash.html/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.github.io/blog/20120817/open-file-mode/" data-via="" data-counturl="http://ltl3884.github.io/blog/20120817/open-file-mode/" >Tweet</a>
   
   
   
@@ -184,10 +159,10 @@ Ctrl + z：挂起命令
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/20130322/avoid-bundle-exec.html/" title="Previous Post: avoid-bundle-exec">&laquo; avoid-bundle-exec</a>
+        <a class="basic-alignment left" href="/blog/20120813/textmate-shortcuts/" title="Previous Post: textmate-shortcuts">&laquo; textmate-shortcuts</a>
       
       
-        <a class="basic-alignment right" href="/blog/20130603/bash-profile-and-bashrc.html/" title="Next Post: 关于bash_profile和bashrc">关于bash_profile和bashrc &raquo;</a>
+        <a class="basic-alignment right" href="/blog/20130308/git-show-file-changed/" title="Next Post: git-show-file-changed">git-show-file-changed &raquo;</a>
       
     </p>
   </footer>
@@ -244,23 +219,23 @@ Ctrl + z：挂起命令
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/20141114/git-work-flow.html/">git工作流程(转)</a>
+        <a href="/blog/20141114/git-work-flow/">git工作流程(转)</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130722/ruby-or-and.html/">Ruby中的||=操作符</a>
+        <a href="/blog/20130722/ruby-or-and/">Ruby中的||=操作符</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130603/bash-profile-and-bashrc.html/">关于bash_profile和bashrc</a>
+        <a href="/blog/20130603/bash-profile-and-bashrc/">关于bash_profile和bashrc</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130528/quick-bash.html/">让你提升命令行效率的 Bash 快捷键</a>
+        <a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a>
       </li>
     
       <li class="post">
-        <a href="/blog/20130322/avoid-bundle-exec.html/">avoid-bundle-exec</a>
+        <a href="/blog/20130322/avoid-bundle-exec/">avoid-bundle-exec</a>
       </li>
     
   </ul>
@@ -318,8 +293,8 @@ Ctrl + z：挂起命令
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ltl3884.github.io/blog/20130528/quick-bash.html/';
-        var disqus_url = 'http://ltl3884.github.io/blog/20130528/quick-bash.html/';
+        var disqus_identifier = 'http://ltl3884.github.io/blog/20120817/open-file-mode/';
+        var disqus_url = 'http://ltl3884.github.io/blog/20120817/open-file-mode/';
         var disqus_script = 'embed.js';
       
     (function () {

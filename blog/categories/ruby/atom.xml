@@ -4,7 +4,7 @@
   <title><![CDATA[分类ruby | ltl3884]]></title>
   <link href="http://ltl3884.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T16:53:11+08:00</updated>
+  <updated>2015-07-30T17:00:00+08:00</updated>
   <id>http://ltl3884.github.io/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby中的||=操作符]]></title>
-    <link href="http://ltl3884.github.io/blog/20130722/ruby-or-and.html/"/>
+    <link href="http://ltl3884.github.io/blog/20130722/ruby-or-and/"/>
     <updated>2013-07-22T10:56:34+08:00</updated>
     <id>http://ltl3884.github.io/blog/20130722/ruby-or-and</id>
     <content type="html"><![CDATA[<pre><code class="ruby">def current_user 
@@ -73,7 +73,7 @@ end
   
   <entry>
     <title type="html"><![CDATA[open-file-mode]]></title>
-    <link href="http://ltl3884.github.io/blog/20120817/open-file-mode.html/"/>
+    <link href="http://ltl3884.github.io/blog/20120817/open-file-mode/"/>
     <updated>2012-08-17T10:33:04+08:00</updated>
     <id>http://ltl3884.github.io/blog/20120817/open-file-mode</id>
     <content type="html"><![CDATA[<h2>r</h2>

@@ -4,7 +4,7 @@
   <title><![CDATA[分类octopress | ltl3884]]></title>
   <link href="http://ltl3884.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ltl3884.github.io/"/>
-  <updated>2015-07-30T16:53:11+08:00</updated>
+  <updated>2015-07-30T17:00:00+08:00</updated>
   <id>http://ltl3884.github.io/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[install-octopress]]></title>
-    <link href="http://ltl3884.github.io/blog/20120809/install-octopress.html/"/>
+    <link href="http://ltl3884.github.io/blog/20120809/install-octopress/"/>
     <updated>2012-08-09T17:22:14+08:00</updated>
     <id>http://ltl3884.github.io/blog/20120809/install-octopress</id>
     <content type="html"><![CDATA[<p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
