@@ -170,11 +170,11 @@ commit1:  add test1.rb
 <pre><code>commit3:  add test3.rb  
 commit2:  add test2.rb  
 commit1:  add test1.rb
-</code></pre><p> 执行<code>git reset HEAD</code>之后</p>
+</code></pre><p> 执行<code>git reset HEAD^</code>之后</p>
 <pre><code>commit2:  add test2.rb  
 commit1:  add test1.rb
 </code></pre><p>test3.rb 在暂存区</p>
-<p>执行<code>git reset --hard HEAD</code>之后</p>
+<p>执行<code>git reset --hard HEAD^</code>之后</p>
 <pre><code>commit2:  add test2.rb  
 commit1:  add test1.rb
 </code></pre><p>test3.rb不在暂存区</p>
@@ -288,7 +288,7 @@ export COLOR_LIGHT_GRAY=&#39;\033[0;37m&#39;
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
 <h1>git自动完成</h1>
 <p>打开~/.bashrc</p>
-<p><code>source ~/.git-completion.bash</code></p>
+<p>增加一行  source ~/<a href="http://ltl3884.me/downloads/git-completion.bash" target="_blank">.git-completion.bash</a></p>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">

@@ -197,7 +197,7 @@ commit2:  add test2.rb
 commit1:  add test1.rb 
 ```
 
- 执行`git reset HEAD`之后
+ 执行`git reset HEAD^`之后
 
 ```
 commit2:  add test2.rb  
@@ -206,7 +206,7 @@ commit1:  add test1.rb
 
 test3.rb 在暂存区
 
-执行`git reset --hard HEAD`之后
+执行`git reset --hard HEAD^`之后
 
 ```
 commit2:  add test2.rb  
@@ -348,7 +348,7 @@ export PS1="\[${COLOR_GREEN}\]\u@\h\[${COLOR_BLUE}\]\w\\[${COLOR_NC}\]\[\033[01;
 
 打开~/.bashrc
 
-`source ~/.git-completion.bash`
+增加一行  source ~/[.git-completion.bash](http://ltl3884.me/downloads/git-completion.bash)
 
 [slide]
 
