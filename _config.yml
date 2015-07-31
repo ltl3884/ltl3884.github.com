@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://ltl3884.github.io
+url: http://ltl3884.me
 title: ltl3884
 subtitle:
 author: ltl3884
@@ -65,6 +65,9 @@ default_asides: [custom/asides/about.html, asides/recent_posts.html, asides/gith
 #   3rd Party Settings    #
 # ----------------------- #
 
+#有言
+comment_share: true
+
 # Github repositories
 github_user: ltl3884
 github_repo_count: 3
@@ -93,7 +96,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: ltl3884
+disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
