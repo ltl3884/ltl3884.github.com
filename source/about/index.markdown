@@ -6,6 +6,3 @@ comments: true
 sharing: true
 footer: true
 ---
-
-
-#ruby, rails developer
