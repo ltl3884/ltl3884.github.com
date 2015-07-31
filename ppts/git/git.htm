@@ -1,0 +1,370 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.2.4
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>git - By ltl3884</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git</h1>
+<h2>演讲者：ltl3884</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>Agenda</h2>
+
+</hgroup><article>
+
+<ul>
+<li>git使用</li>
+<li>git设置</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>git和svn的比较</h2>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li>GIT是分布式的，SVN不是<pre><code>分布式版本控制Bitkeeper, Mercurial
+</code></pre></li>
+<li>Git直接记录快照，而非差异比较</li>
+<li>GIT分支和SVN的分支不同<pre><code>分支在SVN中一点不特别，就是版本库中的另外的一个目录。如果你想知道是否合并了一个分支，
+你需要手工运行像这样的命令svn propget svn:mergeinfo，来确认代码是否被合并
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img src="./img/g1.png" alt="g1">
+<img src="./img/g2.png" alt="g2"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>创建新仓库</h1>
+
+</hgroup><article>
+
+<p>创建新文件夹，打开，然后执行</p>
+<p><code>git init</code></p>
+<p>以创建新的 git 仓库。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>检出仓库</h1>
+
+</hgroup><article>
+
+<p>执行如下命令以创建一个本地仓库的克隆版本：</p>
+<p><code>git clone /path/to/repository</code></p>
+<p>如果是远端服务器上的仓库，你的命令会是这个样子：</p>
+<p><code>git clone username@host:/path/to/repository</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>工作流</h1>
+
+</hgroup><article>
+
+<p>你的本地仓库由 git 维护的三棵“树”组成。</p>
+<p>第一个是你的<code>工作目录</code>，它持有实际文件；</p>
+<p>第二个是 <code>缓存区（Index）</code>，它像个缓存区域，临时保存你的改动；</p>
+<p>最后是 <code>HEAD</code>，指向你最近一次提交后的结果。</p>
+<p><img src="./img/g3.png" alt="g3"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>添加与提交</h1>
+
+</hgroup><article>
+
+<p>你可以计划改动（把它们添加到缓存区），使用如下命令：</p>
+<p><code>git add &lt;filename&gt;</code></p>
+<p><code>git add .</code></p>
+<p>这是 git 基本工作流程的第一步；使用如下命令以实际提交改动：</p>
+<p><code>git commit -m &quot;代码提交信息&quot;</code></p>
+<p>现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>推送改动</h1>
+
+</hgroup><article>
+
+<p>你的改动现在已经在本地仓库的 HEAD 中了。</p>
+<p>执行如下命令以将这些改动提交到远端仓库：</p>
+<p><code>git push origin master</code></p>
+<p>可以把 master 换成你想要推送的任何分支。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>分支</h1>
+
+</hgroup><article>
+
+<p>分支是用来将特性开发绝缘开来的。</p>
+<p>在你创建仓库的时候，master 是“默认的”。</p>
+<p>在其他分支上进行开发，完成后再将它们合并到主分支上。</p>
+<p>创建一个叫做“feature_x”的分支，并切换过去：</p>
+<p><code>git checkout -b feature_x</code>/<code>git br feature_x</code></p>
+<p><code>git commit -m &#39;xx&#39;</code></p>
+<p>...</p>
+<p>...</p>
+<p>切换回主分支：
+<code>git checkout master</code></p>
+<p>合并feature_x:
+<code>git merge feature_x</code></p>
+<p>再把新建的分支删掉：
+<code>git branch -d feature_x</code></p>
+<p>除非你将分支推送到远端仓库，不然该分支就是 不为他人所见的：</p>
+<p><code>git push origin feature_x</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>更新与合并</h1>
+
+</hgroup><article>
+
+<p>要更新你的本地仓库至最新改动，执行：</p>
+<p><code>git pull origin &lt;branch&gt;</code></p>
+<p>以在你的工作目录中 获取（fetch） 并 合并（merge） 远端的改动。</p>
+<p>要合并其他分支到你的当前分支（例如 master），执行：</p>
+<p><code>git merge &lt;branch&gt;</code></p>
+<p>两种情况下，git 都会尝试去自动合并改动。不幸的是，自动合并并非次次都能成功，并可能导致 冲突（conflicts）。 这时候就需要你修改这些文件来人肉合并这些 冲突（conflicts） 了。改完之后，你需要执行如下命令以将它们标记为合并成功：</p>
+<p><code>git add &lt;filename&gt;</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>撤销改动</h1>
+
+</hgroup><article>
+
+<p>git有2种撤销<code>git revert</code>和<code>git reset</code></p>
+<p><code>git revert</code>:回退某次提交，并产生一次新提交，</p>
+<pre><code>commit3:  add test3.rb  
+commit2:  add test2.rb  
+commit1:  add test1.rb
+</code></pre><p>执行<code>git revert HEAD^</code>之后</p>
+<pre><code>commit4:  Reverts “test2.rb”  
+commit3:  add test3.rb  
+commit2:  add test2.rb  
+commit1:  add test1.rb
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><code>git reset</code>:回退某次提交，同时回退修改log，</p>
+<p>但是修改内容回退到本地暂存区，</p>
+<pre><code>commit3:  add test3.rb  
+commit2:  add test2.rb  
+commit1:  add test1.rb
+</code></pre><p> 执行<code>git reset HEAD</code>之后</p>
+<pre><code>commit2:  add test2.rb  
+commit1:  add test1.rb
+</code></pre><p>test3.rb 在暂存区</p>
+<p>执行<code>git reset --hard HEAD</code>之后</p>
+<pre><code>commit2:  add test2.rb  
+commit1:  add test1.rb
+</code></pre><p>test3.rb不在暂存区</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>替换本地改动</h2>
+
+</hgroup><article>
+
+<p><code>git checkout -- &lt;filename&gt;</code></p>
+<p>此命令会使用 HEAD 中的最新内容替换掉你的工作目录中的文件。</p>
+<p>已添加到缓存区的改动，以及新文件，都不受影响。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>stash</h1>
+<p>当你在feature_x分支上开发一个x功能,突然在master分支上有一个bug需要fix.</p>
+<p><code>git stash</code></p>
+<p><code>git checkout master</code></p>
+<p>修改bug,并提交</p>
+<p><code>git checkout feature_x</code></p>
+<p><code>git stash pop</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>gitconfig设置</h1>
+
+</hgroup><article>
+
+<p>打开~/.gitconfig </p>
+<pre><code>[user]
+        name = ltl3884
+        email = ltl3884@gmail.com
+[color]
+        ui = true
+[alias]
+        st = status
+        co = checkout
+        br = branch
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>gitignore设置</h1>
+
+</hgroup><article>
+
+<p>在项目根目录下添加.gitignore</p>
+<pre><code>1. 以斜杠“/”开头表示目录；
+2. 以星*”通配多个字符；
+3. 以问号“?”通配单个字符
+4. 以方括号“[]”包含单个字符的匹配列表；
+5. 以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
+</code></pre><p>此外，git 对于 .ignore 配置文件是按行从上到下进行规则匹配的，意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效；</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>gitignore例子</h1>
+<ul>
+<li>规则：fd1/*<pre><code>忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，
+还是某个子目录 /child/fd1/ 目录，都会被忽略；
+</code></pre></li>
+<li>规则：/fd1/*<pre><code>说明：忽略根目录下的 /fd1/ 目录的全部内容；
+</code></pre></li>
+<li><p>规则：/*</p>
+<p>  !.gitignore</p>
+<p>  !/fw/bin/</p>
+<p>  !/fw/sf/</p>
+<pre><code>说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>git命令行设置</h1>
+
+</hgroup><article>
+
+<p>打开~/.bashrc</p>
+<p>增加颜色配置</p>
+<pre><code>export COLOR_NC=&#39;\033[0m&#39; # No Color
+export COLOR_WHITE=&#39;\033[1;37m&#39;
+export COLOR_BLACK=&#39;\033[0;30m&#39;
+export COLOR_BLUE=&#39;\033[0;34m&#39;
+export COLOR_LIGHT_BLUE=&#39;\033[1;34m&#39;
+export COLOR_GREEN=&#39;\033[0;32m&#39;
+export COLOR_LIGHT_GREEN=&#39;\033[1;32m&#39;
+export COLOR_CYAN=&#39;\033[0;36m&#39;
+export COLOR_LIGHT_CYAN=&#39;\033[1;36m&#39;
+export COLOR_RED=&#39;\033[0;31m&#39;
+export COLOR_LIGHT_RED=&#39;\033[1;31m&#39;
+export COLOR_PURPLE=&#39;\033[0;35m&#39;
+export COLOR_LIGHT_PURPLE=&#39;\033[1;35m&#39;
+export COLOR_BROWN=&#39;\033[0;33m&#39;
+export COLOR_YELLOW=&#39;\033[1;33m&#39;
+export COLOR_GRAY=&#39;\033[1;30m&#39;
+export COLOR_LIGHT_GRAY=&#39;\033[0;37m&#39;
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>修改PS1</p>
+<pre><code>export PS1=&quot;\[${COLOR_GREEN}\]\u@\h\[${COLOR_BLUE}\]\w\\[${COLOR_NC}\]\[\033[01;31m\]\$(parse_git_branch)\[${COLOR_BLUE}\]$\[${COLOR_NC}\]&quot;
+</code></pre><p>增加parse_git_branch方法</p>
+<pre><code class="shell">parse_git_branch() {
+      git branch 2&gt;/dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/(\1)/&#39;
+    }
+</code></pre>
+<p><img src="./img/g4.png" alt="g4"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git自动完成</h1>
+<p>打开~/.bashrc</p>
+<p><code>source ~/.git-completion.bash</code></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1><strong>谢谢大家</strong></h1>
+
+</article></section></slide>
+        <!--slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide-->
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v1.2.4</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'zoomin',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/zoom.js"></script>
+<link rel="stylesheet" href="./css/theme.moon.css">
+<!--placeholder-->
+</body>
+</html>
