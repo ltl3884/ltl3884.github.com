@@ -170,11 +170,11 @@ commit1:  add test1.rb
 <pre><code>commit3:  add test3.rb  
 commit2:  add test2.rb  
 commit1:  add test1.rb
-</code></pre><p> 执行<code>git reset HEAD</code>之后</p>
+</code></pre><p> 执行<code>git reset HEAD^</code>之后</p>
 <pre><code>commit2:  add test2.rb  
 commit1:  add test1.rb
 </code></pre><p>test3.rb 在暂存区</p>
-<p>执行<code>git reset --hard HEAD</code>之后</p>
+<p>执行<code>git reset --hard HEAD^</code>之后</p>
 <pre><code>commit2:  add test2.rb  
 commit1:  add test1.rb
 </code></pre><p>test3.rb不在暂存区</p>
