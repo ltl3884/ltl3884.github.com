@@ -48,7 +48,7 @@
     <loc>http://ltl3884.me/</loc>
   </url>
   <url>
-    <loc>http://ltl3884.me/archives/</loc>
+    <loc>http://ltl3884.me/blog/</loc>
   </url>
   <url>
     <loc>http://ltl3884.me/blog/archives/</loc>
@@ -57,7 +57,7 @@
     <loc>http://ltl3884.me/web_ppts/</loc>
   </url>
   <url>
-    <loc>http://ltl3884.me/blog/</loc>
+    <loc>http://ltl3884.me/archives/</loc>
   </url>
   <url>
     <loc>http://ltl3884.me/about/</loc>
@@ -81,19 +81,23 @@
     <loc>http://ltl3884.me/blog/categories/linux/</loc>
   </url>
   <url>
+    <loc>http://ltl3884.me/matrix.html</loc>
+    <lastmod>2015-07-31T16:06:19+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://ltl3884.me/ppts/git/index.html</loc>
-    <lastmod>2015-07-31T15:44:14+08:00</lastmod>
+    <lastmod>2015-07-31T16:41:00+08:00</lastmod>
   </url>
   <url>
     <loc>http://ltl3884.me/ppts/git/js/mixjs/research/load-test.html</loc>
-    <lastmod>2015-07-31T15:44:13+08:00</lastmod>
+    <lastmod>2015-07-31T16:41:00+08:00</lastmod>
   </url>
   <url>
     <loc>http://ltl3884.me/ppts/git/js/mixjs/research/loadjs.html</loc>
-    <lastmod>2015-07-31T15:44:13+08:00</lastmod>
+    <lastmod>2015-07-31T16:41:00+08:00</lastmod>
   </url>
   <url>
     <loc>http://ltl3884.me/ppts/git/js/mixjs/research/userAgent.html</loc>
-    <lastmod>2015-07-31T15:44:13+08:00</lastmod>
+    <lastmod>2015-07-31T16:41:00+08:00</lastmod>
   </url>
 </urlset>

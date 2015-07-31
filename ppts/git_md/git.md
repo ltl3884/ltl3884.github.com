@@ -348,7 +348,7 @@ export PS1="\[${COLOR_GREEN}\]\u@\h\[${COLOR_BLUE}\]\w\\[${COLOR_NC}\]\[\033[01;
 
 打开~/.bashrc
 
-`source ~/.git-completion.bash`
+增加一行  source ~/[.git-completion.bash](http://ltl3884.me/downloads/git-completion.bash)
 
 [slide]
 
