@@ -1,0 +1,300 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.2.4
+    site: https://github.com/ksky521/nodePPT
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>git_flow - By ltl3884</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    <link rel="stylesheet" media="print" href="./css/pdf.css">
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git_flow</h1>
+<h2>演讲者：ltl3884</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>A successful Git branching model</h1>
+<h3>荷兰人 Vincent Driessen / nvie</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<ul class="rollIn">
+<li><p style='color:blue'>master:</p> 永远在 production-ready 状态</li>
+<li><p style='color:yellow'>develop:</p> 最新的下次发布或者开发状态 (ci nightly build)</li>
+<li><p style='color:pink'>Feature branches:</p>开发新功能都从develop 分支出来，完成后merge 回develop</li>
+<li><p style='color:green'>Release branches:</p> 准备要release 的版本，只修bugs。从develop 分支出来，完成后merge 回master 和develop</li>
+<li><p style='color:red'>Hotfix branches:</p> 等不及release 版本就必须马上修master。会从master 分支出来，完成后merge 回master 和develop</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><img src="./img/git-model.png" alt="g1"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>git flow安装</h1>
+
+</hgroup><article>
+
+<ul>
+<li>osx<pre><code class="java">brew install git-flow
+</code></pre>
+</li>
+<li>linux<pre><code class="java">apt-get install git-flow
+</code></pre>
+</li>
+<li>windows(cygwin)<pre><code class="java">wget -q -O - --no-check-certificate \
+&#39;https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh&#39; | bash
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>初始化</h1>
+
+</hgroup><article>
+
+<p> <code>git flow init</code></p>
+<h2>关于分支的命名约定的问题,建议使用默认值。</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>feature</h1>
+
+</hgroup><article>
+
+<ul>
+<li><code>git flow feature start &lt;name&gt;</code><pre><code class="java">新开始一个feature分支
+</code></pre>
+</li>
+<li><code>git flow feature publish &lt;name&gt;</code><pre><code class="java">将一个本地的feature分支push到远程的仓库中,该命令可用于与团队其他成员合作开发或者备份自己的代码
+</code></pre>
+</li>
+<li><code>git flow feature finish &lt;name&gt;</code><pre><code class="java">完成feature,该命令会自动合并该分支到develop分支,并且删除本地分支
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>release</h1>
+
+</hgroup><article>
+
+<ul>
+<li><code>git flow release start  &lt;name&gt;</code><pre><code class="java">新开始一个release分支
+</code></pre>
+</li>
+<li><code>git flow release publish &lt;name&gt;</code><pre><code class="java">将一个本地的release分支push到远程的仓库中,该命令可用于与团队其他成员合作开发或者备份自己的代码
+</code></pre>
+</li>
+<li><code>git flow release finish &lt;tagname&gt;</code><pre><code class="java">完成release,该命令会自动合并该分支到master分支和develop分支,并且删除本地分支
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>hotfix</h1>
+
+</hgroup><article>
+
+<ul>
+<li><code>git flow hotfix start  &lt;name&gt;</code><pre><code class="java">新开始一个hotfix分支
+</code></pre>
+</li>
+<li><code>git flow hotfix finish &lt;name&gt;</code> <pre><code class="java">完成hotfix,该命令会自动合并该分支到master分支和develop分支,并且删除本地分支
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>分析git flow命令</h1>
+
+</hgroup><article>
+
+<ul>
+<li><code>git flow feature start test</code><pre><code class="java">git checkout -b feature/test develop
+</code></pre>
+</li>
+<li><code>git flow feature finish test</code><pre><code class="java">git checkout develop
+git merge feature/test
+git branch -d feature/test
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q/A</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何将修改和删除的文件添加到暂存区?</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>使用-u参数 git add -u</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何将文件的部分修改添加到暂存区?</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="text-left">
+<h1>使用-p参数</h1>
+<h1>git add --patch/-p <span style='color:yellow'>(path/file)</span></h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何将其他分支中的一个提交合并到我的分支</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git cherry-pick <span style='color:yellow'>commit-id</span></h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何删除远程分支</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git push origin :<span style='color:yellow'>branch-name</span></h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何修改最后一次提交的信息</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git commit --amend</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何切换到最后所在分支</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git checkout - (eg: cd -)</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何显示哪些分支被合并了（或是哪些没有被合并）</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="text-left">
+<h1>git branch --merged</h1>
+<h1>git branch --no-merged</h1>
+<h2>git branch --merged | xargs git branch -d</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何从另一个分支获取文件内容而不用切换分支</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git checkout <span style='color:yellow'>branch</span> -- <span style='color:yellow'>path/file</span></h1>
+<ul>
+<li>git stash改动</li>
+<li>切换到那个分支</li>
+<li>获取文件的改动</li>
+<li>切回工作分支</li>
+<li>git stash pop</li>
+<li>进行编辑</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>谢谢大家</h1>
+<style>
+.text-left{
+    text-align:left;
+}
+</style>
+</article></section></slide>
+        <!--slide class="slide thank-you-slide segue nobackground">
+            <article class="flexbox vleft auto-fadein">
+                <h2>Q &amp; A</h2>
+                <h3>&lt;Thank You!&gt;</h3>
+            </article>
+        </slide-->
+        <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+              <h2 style="color: white;">Powered By nodePPT v1.2.4</h2>
+            </article>
+          </slide>
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = location.pathname.split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'cards',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/hljs-0.8.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+<link rel="stylesheet" href="./css/theme.moon.css">
+<!--placeholder-->
+</body>
+</html>
