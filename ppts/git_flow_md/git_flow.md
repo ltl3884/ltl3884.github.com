@@ -125,14 +125,6 @@ files: /js/demo.js,/css/demo.css
 
 [slide]
 
-#Q:如何将修改和删除的文件添加到暂存区?
-
-[slide style='background-color:green']
-
-#使用-u参数 git add -u
-
-[slide]
-
 #Q:如何将文件的部分修改添加到暂存区?
 
 [slide style='background-color:green']
@@ -166,6 +158,14 @@ files: /js/demo.js,/css/demo.css
 
 [slide]
 
+#Q:如何去掉不必要的日志信息
+
+[slide style='background-color:green']
+
+#git rebase -i <span style='color:yellow'>commit-id</span>
+
+[slide]
+
 #Q:如何切换到最后所在分支
 
 [slide style='background-color:green']
@@ -174,13 +174,11 @@ files: /js/demo.js,/css/demo.css
 
 [slide]
 
-#Q:如何显示哪些分支被合并了（或是哪些没有被合并）
+#Q:如何临时忽略文件跟踪
 
 [slide style='background-color:green']
 
-#git branch --merged {:&.text-left}
-#git branch --no-merged
-## git branch --merged | xargs git branch -d
+###git update-index --assume-unchanged <span style='color:yellow'>(path/file)</span>
 
 [slide]
 
