@@ -86,7 +86,7 @@ files: /js/demo.js,/css/demo.css
    ```java
    将一个本地的release分支push到远程的仓库中,该命令可用于与团队其他成员合作开发或者备份自己的代码
    ``` 
- * `git flow release finish <tagname>`
+ * `git flow release finish <name>`
     ```java
     完成release,该命令会自动合并该分支到master分支和develop分支,并且删除本地分支
     ```

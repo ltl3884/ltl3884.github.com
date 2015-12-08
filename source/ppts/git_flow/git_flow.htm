@@ -99,7 +99,7 @@
 <li><code>git flow release publish &lt;name&gt;</code><pre><code class="java">将一个本地的release分支push到远程的仓库中,该命令可用于与团队其他成员合作开发或者备份自己的代码
 </code></pre>
 </li>
-<li><code>git flow release finish &lt;tagname&gt;</code><pre><code class="java">完成release,该命令会自动合并该分支到master分支和develop分支,并且删除本地分支
+<li><code>git flow release finish &lt;name&gt;</code><pre><code class="java">完成release,该命令会自动合并该分支到master分支和develop分支,并且删除本地分支
 </code></pre>
 </li>
 </ul>
@@ -142,14 +142,6 @@ git branch -d feature/test
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
-<h1>Q:如何将修改和删除的文件添加到暂存区?</h1>
-
-</article></section></slide>
-<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
-<h1>使用-u参数 git add -u</h1>
-
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
 <h1>Q:如何将文件的部分修改添加到暂存区?</h1>
 
 </article></section></slide>
@@ -183,6 +175,14 @@ git branch -d feature/test
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q:如何去掉不必要的日志信息</h1>
+
+</article></section></slide>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>git rebase -i <span style='color:yellow'>commit-id</span></h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
 <h1>Q:如何切换到最后所在分支</h1>
 
 </article></section></slide>
@@ -191,13 +191,11 @@ git branch -d feature/test
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
-<h1>Q:如何显示哪些分支被合并了（或是哪些没有被合并）</h1>
+<h1>Q:如何临时忽略文件跟踪</h1>
 
 </article></section></slide>
-<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article class="text-left">
-<h1>git branch --merged</h1>
-<h1>git branch --no-merged</h1>
-<h2>git branch --merged | xargs git branch -d</h2>
+<slide class="slide" style='background-color:green'><section class="slide-wrapper"><article>
+<h3>git update-index --assume-unchanged <span style='color:yellow'>(path/file)</span></h3>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
