@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类java | ltl3884]]></title>
+  <link href="http://ltl3884.me/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://ltl3884.me/"/>
+  <updated>2016-04-18T11:57:27+08:00</updated>
+  <id>http://ltl3884.me/</id>
+  <author>
+    <name><![CDATA[ltl3884]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[java cucumber使用总结]]></title>
+    <link href="http://ltl3884.me/blog/20160418/java-cucumbershi-yong-zong-jie/"/>
+    <updated>2016-04-18T10:47:24+08:00</updated>
+    <id>http://ltl3884.me/blog/20160418/java-cucumbershi-yong-zong-jie</id>
+    <content type="html"><![CDATA[<p>最近这几个月一直在做java, java在cucumber方面可能不如ROR方便, 也缺少一些有用的工具支持,比如:database_cleaner, factory_girl等, 下面分享一下java在cucumber的一些使用经验</p>
+
+<ul>
+<li>以maven项目为例,首先在pom.xml中加入</li>
+</ul>
+
+
+<pre><code class="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-java&lt;/artifactId&gt;
+            &lt;version&gt;1.2.0&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-junit&lt;/artifactId&gt;
+            &lt;version&gt;1.2.0&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;info.cukes&lt;/groupId&gt;
+            &lt;artifactId&gt;cucumber-spring&lt;/artifactId&gt;
+            &lt;version&gt;1.2.0&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<ul>
+<li>创建cucumber的入口文件,在src/test/java文件夹下创建 com.cbss.cucumber.steps.CbssIT</li>
+</ul>
+
+
+<pre><code class="java">    @RunWith(Cucumber.class)
+    @CucumberOptions(plugin = { "pretty", "html:target/cucumber" }, features = { "src/test/resources/features/" })
+    public class CbssIT {
+
+        private static EmbeddedTomcat tomcat = new EmbeddedTomcat();
+
+        @BeforeClass
+        public static void setup() {
+            if (!tomcat.isRunning()) {
+                tomcat.start();
+                tomcat.deploy("cbss_server");
+                LogFactory.getInstance().getServerLogger().debug("tomcat-start ...");
+            }
+        }
+
+        @AfterClass
+        public static void teardown() {
+            if (tomcat.isRunning()) {
+                tomcat.stop();
+                LogFactory.getInstance().getServerLogger().debug("tomcat-stop ...");
+            }
+        }
+
+    }
+</code></pre>
+
+<p>EmbeddedTomcat是内嵌的tomcat在cucumber开始前部署项目,下面说一下EmbeddedTomcat的具体实现,在pom.xml中引入包</p>
+
+<pre><code class="xml">    &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-catalina&lt;/artifactId&gt;
+            &lt;version&gt;8.0.21&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-util&lt;/artifactId&gt;
+            &lt;version&gt;8.0.21&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;
+            &lt;version&gt;8.0.21&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+            &lt;version&gt;7.0.8&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<pre><code class="java">public class EmbeddedTomcat {
+  private Tomcat tomcat;
+
+  public void start() {
+    try {
+      tomcat = new Tomcat();
+      // If I don't want to copy files around then the base directory must be '.'
+      String baseDir = ".";
+      tomcat.setPort(8080);
+      tomcat.setBaseDir(baseDir);
+      tomcat.getHost().setAppBase(baseDir);
+      tomcat.getHost().setDeployOnStartup(true);
+      tomcat.getHost().setAutoDeploy(true);
+      tomcat.start();
+    } catch (LifecycleException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public void stop() {
+    try {
+      tomcat.stop();
+      tomcat.destroy();
+      // Tomcat creates a work folder where the temporary files are stored
+      FileUtils.deleteDirectory(new File("work"));
+      FileUtils.deleteDirectory(new File("tomcat.8080"));
+    } catch (LifecycleException e) {
+      throw new RuntimeException(e);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public void deploy(String appName) {
+    tomcat.addWebapp(tomcat.getHost(), "/" + appName, "src/main/webapp");
+  }
+
+  public String getApplicationUrl(String appName) {
+    return String.format("http://%s:%d/%s", tomcat.getHost().getName(),
+        tomcat.getConnector().getLocalPort(), appName);
+  }
+
+  public boolean isRunning() {
+      return tomcat != null;
+  }
+}
+</code></pre>
+
+<ul>
+<li>在src/test/resources/features/ 下创建一个test.feature文件</li>
+</ul>
+
+
+<pre><code>    # language: zh-CN
+
+    功能: 附属码下发业务逻辑测试
+
+        背景:
+            假如已经存基本的信息
+
+        场景: 用户没有填写手机号码,不应该注册成功
+            假如存在一个用户
+            而且该用户没有填写电话号码
+            当用户注册
+            那么不应该注册成功
+</code></pre>
+
+<ul>
+<li>在eclipse中使用junit运行CbssIT或者在命令行中运行 mvn test -Dtest=com.cbss.cucumber.steps.CbssIT后,会显示未完成的steps,创建一个java文件实现这些steps</li>
+</ul>
+
+
+<pre><code class="java">  @ContextConfiguration("/cucumber.xml")
+  public class XxxSteps
+        @假如("^存在一个用户$")
+    public void 存在一个用户 throws Throwable {
+        ...
+    }
+  end
+</code></pre>
+
+<p>cucumber.xml为</p>
+
+<pre><code class="xml">    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"&gt; 
+
+
+        &lt;import resource="classpath:test-applicationContext.xml"/&gt; 
+
+    &lt;/beans&gt;
+</code></pre>
+
+<p>在test-applicationContext.xml中可以配置测试的数据库和redis等等
+自此cucumber的环境已经基本搭建完成了,下面说一下 database_cleaner, factory_girl 等工具的实现</p>
+
+<ul>
+<li>database_cleaner: 创建DataBaseCleaner类</li>
+</ul>
+
+
+<pre><code class="java">    public class DataBaseCleaner {
+
+        @Autowired
+        DataSource dataSourceMain;
+        @Autowired
+        RedisFactory redisFactory;
+
+        public void clean() {
+            JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceMain);
+            String[] tables = { "table1", "table2", "table3"};
+            jdbcTemplate.execute("SET FOREIGN_KEY_CHECKS=0");
+            for (int i = 0; i &lt; tables.length; i++) {
+                jdbcTemplate.execute("truncate table " + tables[i]);
+            }
+            redisFactory.flushDB();
+        }
+</code></pre>
+
+<p>在场景结束后会执行DataBaseCleaner的clean方法
+```java</p>
+
+<pre><code>    @After
+public void afterScenario() throws IOException {
+    dataBaseCleaner.clean();
+}
+</code></pre>
+
+<pre><code>
++  factory_girl: 创建package:com.cbss.cucumber.factory, 在com.cbss.cucumber.factory包下面创建Builder.java和FactoryGirl.java和UserBuilder.java
+</code></pre>
+
+<p>public interface Builder<T> {</p>
+
+<pre><code>T build();
+</code></pre>
+
+<p>}</p>
+
+<pre><code></code></pre>
+
+<p>@Component
+public class FactoryGirl {</p>
+
+<pre><code>public Builder&lt;?&gt; create(String name) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+    String packageName = FactoryGirl.class.getPackage().getName();
+    return (Builder&lt;?&gt;) Class.forName(packageName + "." + name + "Builder").newInstance();
+}
+</code></pre>
+
+<p>}</p>
+
+<pre><code></code></pre>
+
+<pre><code>public class UserBuilder implements Builder&lt;User&gt;{
+
+    private static int sequenceId = 20094;
+
+    private static int sequenceUserName = 0;
+
+    public int getSequenceId() {
+        sequenceId += 1;
+        return sequenceId;
+    }
+
+    public int getSequenceUserName(){
+        sequenceUserName += 1;
+        return sequenceUserName;
+    }
+
+    @Override
+    public User build() {
+        User user = new User();
+        user.setId(getSequenceId());
+        user.setName("user" + getSequenceUserName());
+        user.setXXX("xxx");
+        ...
+        ...
+        return user;
+    }
+
+}
+</code></pre>
+
+<pre><code>
+创建user的时候可以调用
+</code></pre>
+
+<pre><code>User user = (User)factoryGirl.create("User");
+</code></pre>
+
+<pre><code>
+避免了像以下这样的重复代码
+</code></pre>
+
+<pre><code>User user = new User()
+user.setId(id);
+user.setName(name)
+user.setXxx("xxx");
+...
+...
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

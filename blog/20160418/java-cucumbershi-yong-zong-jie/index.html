@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ltl3884</title>
+  <title>java cucumber使用总结 - ltl3884</title>
   <meta name="author" content="ltl3884">
 
   
@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ltl3884.me/">
+  <link rel="canonical" href="http://ltl3884.me/blog/20160418/java-cucumbershi-yong-zong-jie/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -50,15 +50,12 @@
 </header>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/20160418/java-cucumbershi-yong-zong-jie/">Java Cucumber使用总结</a></h1>
+      <h1 class="entry-title">Java Cucumber使用总结</h1>
     
     
       <p class="meta">
@@ -81,7 +78,7 @@
   </header>
 
 
-  <div class="entry-content"><p>最近这几个月一直在做java, java在cucumber方面可能不如ROR方便, 也缺少一些有用的工具支持,比如:database_cleaner, factory_girl等, 下面分享一下java在cucumber的一些使用经验</p>
+<div class="entry-content"><p>最近这几个月一直在做java, java在cucumber方面可能不如ROR方便, 也缺少一些有用的工具支持,比如:database_cleaner, factory_girl等, 下面分享一下java在cucumber的一些使用经验</p>
 
 <ul>
 <li>以maven项目为例,首先在pom.xml中加入</li>
@@ -590,191 +587,16 @@
 
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20141114/git-work-flow/">Git工作流程(转)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">ltl3884</span></span>
 
-<time datetime="2014-11-14T11:02:49+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　如果你不理解Git的设计动机，那你就会处处碰壁。知道足够多的命令和参数后，你就会强行让Git按你想的来工作，而不是按Git自己的方式来。
-这就像把螺丝刀当锤子用，也能把活干完，但肯定干的差极了，花费很长时间，还会弄坏螺丝刀。</p>
-
-<p>　　想想常见的Git工作流程是怎么失效的吧。</p>
-
-<p>　　多数时候这样做的效果会如你所愿，因为从你创建分支到合并回去之间，Master一般都会有些变动。然后，有一天当你想把一个功能（feature）分支合并进Master的时候，而Master并没有像以往那样有变动，问题来了：这时Git不会进行合并commit，而是将Master指向功能分支上的最新commit。 <a href="https://sandofsky.com/images/fast_forward.pdf">看图</a>.不幸的是，你的功能分支有用来备份代码的commit（作者称之为checkpoint commit），这些经常进行的commit对应的代码可能处于不稳定状态！而这些commit现在没法和Master上那些稳定的commit区分开来了。当你想回滚的时候，很容易发生灾难性后果。</p>
-
-<p>　　于是你就记住了：“当合并功能分支的时候，加上 -no-ff 选项强制进行一次全新的commit。”嗯，这么做好像解决问题了，那么继续。</p>
-
-<p>　　然后一天你在线上环境中发现了一个严重bug，这时你需要追溯下这个bug是什么时候引入的。你运行了bisect命令，但却总是追溯到一些不稳定的commit。因此你不得不放弃，改用人肉检查。</p>
-
-<p>　　最后你将bug范围缩小到一个文件。你运行blame命令查看这个文件在过去48小时里的变动。然后blame告诉你这个文件已经好几周没有被修改过了 —— 你知道根本不可能没有变动。哦，原来是因为blame计算变动是从第一次commit算起，而不是merge的时候。你在几周前的一次commit中改动了这个文件，但这个变动今天才被merge回来。</p>
-
-<p>　　用no-ff来救急，bisect又临时失效，blame的运作机制又那么模糊，所有这些现象都说明一件事儿，那就是你正在把螺丝刀当锤子用。</p>
-
-<h3>反思版本控制</h3>
-
-<p>版本控制的存在是因为两个原因。</p>
-
-<p>　　首先，版本控制是用来辅助写代码的。因为你要和同事同步代码，并经常备份自己的代码。当然了，把文件压缩后发邮件也行，不过工程大了大概就不好办了。</p>
-
-<p>　　其次，就是辅助配置管理工作。其中就包括并行开发的管理，比如一边给线上版本修复bug，一边开发下一个版本。配置管理也可以帮助弄清楚变动发生的具体时间，在追溯bug中是一个很好的工具。</p>
-
-<p>　　一般说来，这两个原因是冲突的。</p>
-
-<p>　　在开发一个功能的时候，你应该经常做备份性的commit。然而，这些commit经常会让软件没法编译。</p>
-
-<p>　　理想情况是，你的版本更新历史中的每一次变化都是明确且稳定的，不会有备份性commit带来的噪声，也不会有超过一万行代码变动的超大commit。一个清晰的版本历史让回滚和选择性merge都变得相当容易，而且也方便以后的检查和分析。然而，要维护这样一个干净的历史版本库，也许意味着总是要等到代码完善之后才能提交变动。</p>
-
-<p>　　那么，经常性的commit和干净的历史，你选择哪一个？</p>
-
-<p>　　如果你是在刚起步的创业公司中，干净的历史没有太大帮助。你可以放心地把所有东西都往Master中提交，感觉不错的时候随时发布。</p>
-
-<p>　　如果团队规模变大或是用户规模扩大了，你就需要些工具和技巧来做约束，包括自动化测试，代码检查，以及干净的版本历史。</p>
-
-<p>　　功能分支貌似是一个不错的折中选择，能够解决基本的并行开发问题。当你写代码的时候，可以不用怎么在意集成的问题，但它总有烦到你的时候。</p>
-
-<p>　　当你的项目规模足够大的时候，简单的 branch/commit/merge 工作流程就出问题了。缝缝补补已经不行了。这时你需要一个干净的版本历史库。</p>
-
-<p>　　Git之所以是革命性的，就是因为它能同时给你这两方面的好处。你可以在原型开发过程中经常备份变动，而搞定后只需要交付一个干净的版本历史。</p>
-
-<h3>工作流程</h3>
-
-<p>考虑两种分支：公共的和私有的。</p>
-
-<p>　　公共分支是项目的权威性历史库。在公共分支中，每一个commit都应该确保简洁、原子性，并且有完善的提交信息。此分支应该尽可能线性，且不能更改。公共分支包括Master和发行版的分支。</p>
-
-<p>　　私有分支是供你自己使用的，就像解决问题时的草稿纸。</p>
-
-<p>　　安全起见，把私有分支只保存在本地。如果你确实需要push到服务器的话（比如要同步你在家和办公室的电脑），最好告诉同事这是私有的，不要基于这个分支展开工作。</p>
-
-<p>　　绝不要直接用merge命令把私有分支合并到公共分支中。要先用reset、rebase、squash merges、commit amending等工具把你的分支清理一下。</p>
-
-<p>　　把你自己看做一个作者，每一次的commit视为书中的一章。作者不会出版最初的草稿，就像Michael Crichton说的，“伟大的书都不是写出来——而是改出来的”（“Great books aren’t written – they’re rewritten.”）。</p>
-
-<p>　　如果你没接触过Git，那么修改历史对你来说好像是种禁忌。你习惯于认为提交过的所有东西都应该像刻在石头上一样不能抹去。但如果按这种逻辑，我们在文本处理软件器中也不应该使用“撤销”功能了。</p>
-
-<p>　　实用主义者们直到变化变为噪音的时候才关注变化。对于配置管理来说，我们关注宏观的变化。日常commit（checkpoint commits）只是备份于云端的用于“撤销”的缓冲。</p>
-
-<p>　　如果你保持公共历史版本库的简洁，那么所谓的fast-forward merge就不仅安全而且可取了，它能保证版本变更历史的线性和易于追溯。</p>
-
-<p>　　关于 -no-ff 仅剩的争论就只剩“文档证明”了。人们可能会先merge再commit，以此代表最新的线上部署版本。不过，这是反模式的。用tag吧。</p>
-
-<h3>规则和例子</h3>
-
-<p>根据改变的多少、持续工作时间的长短，以及分支分叉了多远，我使用三种基本的方法</p>
-
-<p>1）短期工作</p>
-
-<p>　　绝大多数时间，我做清理时只用squash merge命令。 　　假设我创建了一个功能分支，并且在接下来一个小时里进行了一系列的checkpoint commit。</p>
-
-<pre><code>git checkout -b private_feature_branch
-touch file1.txt
-git add file1.txt
-git commit -am "WIP"
-</code></pre>
-
-<p>完成开发后，我不是直接执行git merge命令，而是这样：</p>
-
-<pre><code>git checkout master
-git merge --squash private_feature_branch
-git commit -v
-</code></pre>
-
-<p>然后我会花一分钟时间写个详细的commit日志。</p>
-
-<p>2）较大的工作</p>
-
-<p>　　有时候一个功能可以延续好几天，伴有大量的小的commit。</p>
-
-<p>　　我认为这些改变应该被分解为一些更小粒度的变更，所以squash作为工具来说就有点儿太糙了。（根据经验我一般会问，“这样能让阅读代码更容易吗？”）</p>
-
-<p>　　如果我的checkpoint commits之后有合理的更新，我可以使用rebase的交互模式。</p>
-
-<p>　　交互模式很强大。你可以用它来编辑、分解、重新排序、合并以前的commit。</p>
-
-<p>　　在我的功能分支上：</p>
-
-<pre><code>git rebase --interactive master 
-</code></pre>
-
-<p>　　然后会打开一个编辑器，里边是commit列表。每一行上依次是：要执行的操作、commit的SHA1值、当前commit的注释。并且提供了包含所有可用命令列表的图例。</p>
-
-<p>　　默认情况下，每个commit的操作都是“pick”，即不会修改commit。</p>
-
-<pre><code>pick ccd6e62 Work on back button
-pick 1c83feb Bug fixes
-pick f9d0c33 Start work on toolbar 
-</code></pre>
-
-<p>　　我把第二行修改为“squash”，这样第二个commit就会合并到第一个上去。</p>
-
-<pre><code>pick ccd6e62 Work on back button
-squash 1c83feb Bug fixes
-pick f9d0c33 Start work on toolbar 
-</code></pre>
-
-<p>　　保存并退出，会弹出一个新的编辑器窗口，让我为本次合并commit做注释。就这样。</p>
-
-<p>　　舍弃分支</p>
-
-<p>　　也许我的功能分支已经存在了很久很久，我不得不将好几个分支合并进这个功能分支中，以便当我写代码时这个分支是足够新的的。版本历史让人费解。最简单的办法是创建一个新的分支。</p>
-
-<pre><code>git checkout master
-git checkout -b cleaned_up_branch
-git merge --squash private_feature_branch
-git reset 
-</code></pre>
-
-<p>　　现在，我就有了一个包含我所有修改且不含之前分支历史的工作目录。这样我就可以手动添加和commit我的变更了。</p>
-
-<h3>总结</h3>
-
-<p>　　如果你在与Git的默认设置背道而驰，先问问为什么。将公共分支历史看做不可变的、原子性的、容易追溯的。将私有分支历史看做一次性的、可编辑的。推荐的工作流程是：  基于公共分支创建一个私有分支。 经常向这个私有分支commit代码。一旦你的代码完善了，就清理掉私有分支的历史。 将干净的私有分支merge到公共分支中。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130722/ruby-or-and/">Ruby中的||=操作符</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -786,632 +608,44 @@ git reset
   
 
 
-<time datetime="2013-07-22T10:56:34+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">current_user</span>
-</span><span class='line'>  <span class="vi">@current_user</span> <span class="o">||=</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>短短一行代码，却含有很多逻辑，以前老是搞混，这里总结一下。</p>
-
-<p>这句代码相当于</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">current_user</span>
-</span><span class='line'>    <span class="k">if</span> <span class="vi">@current_user</span>
-</span><span class='line'>       <span class="k">return</span> <span class="vi">@current_user</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>       <span class="k">if</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span>
-</span><span class='line'>          <span class="vi">@current_user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'>       <span class="k">else</span>
-</span><span class='line'>          <span class="vi">@current_user</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'>       <span class="k">end</span>
-</span><span class='line'>       <span class="k">return</span> <span class="vi">@current_user</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>展开后的代码看起来很恶心，代码意思为：如果@current_user不为空直接返回@current_user。 如果@current_user为空，则根据session中的user_id判断是否登录，如果已经登录则查找出用户信息并返回。如果没有登录则返回空。</p>
-
-<p>这里总结下各符号用法： and 与 &amp;&amp; 为和，区别是and优先级比&amp;&amp;低。 or 与 || 为或，not与!为非，区别均是前者优先级低于后者 &amp;&amp;=, !=, ||=这个比较灵活，以前习惯用Java，可以认为它相当于Java里的+=,-=。 a &amp;&amp;= b即为a = a &amp;&amp; b。可见Ruby比Java灵活很多。</p>
-
-<p>Ruby的&amp;&amp;, ||与其它语言有些不同。 &amp;&amp;运算法则为：左边为false或nil时，直接分别返回false或nil，右边将不会运算。 左边不为false或nil时，返回右边的对象。 ||运算法则为：左边为false或nil时，返回右边的对象。 左边不为false或nil时，直接返回左边的对象，右边的不会运算。 我整理了几个例子:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="kp">false</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; false</span>
-</span><span class='line'><span class="nb">puts</span> <span class="kp">nil</span>   <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; nil</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="kp">true</span>  <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;123&quot;</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="kp">false</span> <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="kp">nil</span>   <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;abc&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="kp">true</span>  <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; true</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;123&quot;</span> <span class="o">||</span> <span class="s2">&quot;abc&quot;</span>      <span class="c1"># =&gt; &quot;123&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果你想深入请看下面，不深入就算了 其实||=这个运算符里面比较复杂，或者说有点乱。 x ||= y 相当于 x || x=y 而不是 x = x||y 区别在于如果x存在且不为空时不会执行任何操作，直接返回。 还相当于</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">defined?</span> <span class="n">x</span>
-</span><span class='line'>    <span class="n">x</span> <span class="o">||</span> <span class="n">x</span><span class="o">=</span><span class="n">y</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>    <span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2016-04-18T10:47:24+08:00" pubdate data-updated="true"></time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130603/bash-profile-and-bashrc/">关于bash_profile和bashrc</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/java/'>java</a>
+  
+</span>
 
 
-<time datetime="2013-06-03T10:50:10+08:00" pubdate data-updated="true"></time>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>/etc/profile:</p>
-
-<pre><code>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 
-并从/etc/profile.d目录的配置文件中搜集shell的设置.
-</code></pre>
-
-<p>/etc/bashrc:</p>
-
-<pre><code>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取. ~/.
-bash_profile:每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,
-该 文件仅仅执行一次!默认情况下,他设置一些环境变量,
-执行用户的.bashrc文件. ~/.bashrc:该文件包含专用于你的bash shell的bash信息,
-当登录时以及每次打开新的shell时,该 该文件被读取. ~/.
-bash_logout:当每次退出系统(退出bash shell)时,执行该文件.  
-</code></pre>
-
-<p>另外,/etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承/etc/profile中的变量,他们是”父子”关系.</p>
-
-<p>~/.bash_profile 是交互式、login 方式进入 bash 运行的 ~/.bashrc 是交互式 non-login 方式进入 bash 运行的 通常二者设置大致相同，所以通常前者会调用后者。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.me/blog/20160418/java-cucumbershi-yong-zong-jie/" data-via="" data-counturl="http://ltl3884.me/blog/20160418/java-cucumbershi-yong-zong-jie/" >Tweet</a>
+  
+  
+  
+  
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2051231"></script>
+<!-- UY END -->
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-28T10:46:40+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>编辑命令</h3>
-
-<pre><code>Ctrl + a ：移到命令行首
-Ctrl + e ：移到命令行尾
-Ctrl + f ：按字符前移（右向）
-Ctrl + b ：按字符后移（左向）
-Alt + f ：按单词前移（右向）
-Alt + b ：按单词后移（左向）
-Ctrl + xx：在命令行首和光标之间移动
-Ctrl + u ：从光标处删除至命令行首
-Ctrl + k ：从光标处删除至命令行尾
-Ctrl + w ：从光标处删除至字首
-Alt + d ：从光标处删除至字尾
-Ctrl + d ：删除光标处的字符
-Ctrl + h ：删除光标前的字符
-Ctrl + y ：粘贴至光标后
-Alt + c ：从光标处更改为首字母大写的单词
-Alt + u ：从光标处更改为全部大写的单词
-Alt + l ：从光标处更改为全部小写的单词
-Ctrl + t ：交换光标处和之前的字符
-Alt + t ：交换光标处和之前的单词
-Alt + Backspace：与 Ctrl + w 相同类似，分隔符有些差别 [感谢 rezilla 指正]
-</code></pre>
-
-<h3>重新执行命令</h3>
-
-<pre><code>Ctrl + r：逆向搜索命令历史
-Ctrl + g：从历史搜索模式退出
-Ctrl + p：历史中的上一条命令
-Ctrl + n：历史中的下一条命令
-Alt + .：使用上一条命令的最后一个参数
-</code></pre>
-
-<h3>控制命令</h3>
-
-<pre><code>Ctrl + l：清屏
-Ctrl + o：执行当前命令，并选择上一条命令
-Ctrl + s：阻止屏幕输出
-Ctrl + q：允许屏幕输出
-Ctrl + c：终止命令
-Ctrl + z：挂起命令
-</code></pre>
-
-<h3>Bang (!) 命令</h3>
-
-<pre><code>!!：执行上一条命令
-!blah：执行最近的以 blah 开头的命令，如 !ls
-!blah:p：仅打印输出，而不执行
-!$：上一条命令的最后一个参数，与 Alt + . 相同
-!$:p：打印输出 !$ 的内容
-!*：上一条命令的所有参数
-!*:p：打印输出 !* 的内容
-^blah：删除上一条命令中的 blah
-^blah^foo：将上一条命令中的 blah 替换为 foo
-^blah^foo^：将上一条命令中所有的 blah 都替换为 foo
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/20141114/git-work-flow/" title="Previous Post: git工作流程(转)">&laquo; git工作流程(转)</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130322/avoid-bundle-exec/">Avoid-bundle-exec</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-22T10:42:29+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>1.为什么会出现bundle exec的情况？</p>
-
-<p>bundle exec这个前缀，是为了保持本地所云行的gem与gemfile里面指定的gem是一致的，否则，会因为版本问题，出现各种小的bug，有时候让开发者无所适从。 为了，消除bundle exec这个前缀的同时，而让本地完全按照gemfile里面所指定的版本执行，所以有了这篇文章。</p>
-
-<p>2.解决方案：RVM与bundler集成</p>
-
-<p>这也是首选方案，如果在Windows环境下开发的话，这个方法并不适合，强烈建议抛弃windows，否则后患无穷。说正题， 为了能够让RVM正确地自动执行本地环境，需要进行如下步骤 运行</p>
-
-<pre><code>$ rvm get head &amp;&amp; rvm reload
-$ chmod +x $rvm_path/hooks/after_cd_bundler
-$ cd ~/rails_projects/sample_app
-$ bundle install --without production --binstubs=./bundler_stubs
-</code></pre>
-
-<p>这些命令能够神奇地让RVM和Bundler结合在一起，这样就可以确保，像rake和raspec这样的命令，自动并且正确地执行本地环境。</p>
-
-<p>最后, 因为bundler_sutbs是与本地配置有关的文件, 所以最好将其加到.gitignore中</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20130308/git-show-file-changed/">Git-show-file-changed</a></h1>
-    
-    
-      <p class="meta">
-        
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-08T10:36:20+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h4>git diff 工作区与提交任务（提交暂存区，stage）中相比的差异</h4>
-
-<h4>git diff HEAD 工作区和HEAD（当前工作分支）相比的差异</h4>
-
-<h4>git diff –cached （或–staged）提交暂存区（提交任务，stage）和版本库中文件的差异</h4>
-
-<h4>git status 显示状态 -s表示用精简方式 -b同时显示当前工作分支的名称</h4>
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120817/open-file-mode/">Open-file-mode</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-17T10:33:04+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>r</h2>
-
-<pre><code>Read-only mode. The file pointer is placed at the beginning of the file. 
-This is the default mode.
-</code></pre>
-
-<h2>r+</h2>
-
-<pre><code>Read-write mode. The file pointer will be at the beginning of the file.
-</code></pre>
-
-<h2>w</h2>
-
-<pre><code>Write-only mode. Overwrites the file if the file exists. 
-If the file does not exist, creates a new file for writing.
-</code></pre>
-
-<h2>w+</h2>
-
-<pre><code>Read-write mode. Overwrites the existing file if the file exists. 
-If the file does not exist, creates a new file for reading and writing.
-</code></pre>
-
-<h2>a</h2>
-
-<pre><code>Write-only mode. 
-The file pointer is at the end of the file if the file exists. 
-That is, the file is in the append mode. 
-If the file does not exist, it creates a new file for writing.
-</code></pre>
-
-<h2>a+</h2>
-
-<pre><code>Read and write mode. 
-The file pointer is at the end of the file if the file exists. 
-The file opens in the append mode. 
-If the file does not exist, it creates a new file for reading and writing.
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120813/textmate-shortcuts/">Textmate-shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-13T10:28:18+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>TextMate 快捷键</p>
-
-<pre><code>cmd + option + L    显示行号
-cmd + F            页面搜索文字
-cmd + shift + F        项目搜索文字
-cmd + G            下一个搜索文字
-cmd + shift + G    上一个搜索文字
-cmd + option + F    替换一个
-cmd + ctrl + F        全部替换
-cmd + S            保存
-cmd + option + S    全部保存    
-cmd + shift + S        另存为。。。。
-cmd + shift + -&gt;        选中光标右面的内容
-cmd + shift + &lt;-        选中光标左面的内容
-cmd + shift + L        选取一行信息
-cmd + L             定位到某一行
-cmd + option + -&gt;    textmate项目中右面的标签
-cmd + option + &lt;-    textmate项目中左面的标签
-cmd + 数字        选择某个标签
-cmd + -&gt;            光标回到行尾
-cmd + &lt;-            光标回到行首
-cmd + ^            光标回到页首
-cmd + 下箭头        光标回到页尾
-cmd + /                注释一行
-cmd + z            返回前一个内容
-cmd + ]                增加缩进
-cmd + [                减少缩进
-cmd + T            打开项目下的文件
-cmd + O            打开项目
-cmd + N            新建文件
-cmd + W                 关闭标签
-cmd + X            剪切
-cmd + C            复制
-cmd + V            粘帖
-cmd + M            最小法
-cmd + F2            标记
-cmd + shift + z        返回后一个内容
-cmd + option + [        格式化代码
-cmd + shift + T        当前文件中所有方法的
-cmd + shift + W    关闭项目
-cmd + option + L      显示行号
-cmd + alt + [       代码格式化
-cmd + shift + t 当前文件中所有的方法导航
-
-ctrl + A                    光标回到行首
-ctrl + E                    光标回到行尾
-ctrl + L                    自动生成 =&gt;
-ctrl + w                    选取一个单词
-ctrl + tab                    在菜单栏和页面切换
-ctrl + 上箭头                向上移动下拉菜单
-ctrl + 下箭头                向下移动下拉菜单
-ctrl + cmd + 上箭头    向上移动整行
-ctrl + cmd + 下箭头    向下移动整行
-ctrl + shift + k 删除一行代码
-ctrl + shift + &gt;  (erb模板) 一键&lt;%= %&gt;，连续按会出现多种效果 
-ctrl + option + cmd + V    从历史中选择内容粘帖
-
-option|ctrl + -&gt;            光标向右移动一个单词
-option|ctrl + &lt;-            光标向左移动一个单词
-option|ctrl + shift + &gt;   选中光标右面的单词
-option|ctrl + shift + &lt;   选中光标左面的单词
-
-F2                        在标记间切换
-tab     输入def按tab它会自动补全end
-esc     以该文件中已经出现过的词做自动补全，可以按多次esc切换单词
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120813/sublime-text-2-useful-shortcuts/">Sublime-text-2-useful-shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-13T10:20:36+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>打开/前往</h2>
-
-<pre><code>⌘T     前往文件
-⌘⌃P  前往项目
-⌘R   前往 method
-⌘⇧P  命令提示
-⌃G   前往行
-⌘KB  开关侧栏
-⌃ `  python 控制台
-⌘⇧N  新建窗口
-</code></pre>
-
-<h2>编辑</h2>
-
-<pre><code>⌘L   选择行 (重复按下将下一行加入选择)
-⌘D   选择词 (重复按下时多重选择相同的词进行多重编辑)
-⌃⇧M  选择括号内的内容
-⌘⇧↩  在当前行前插入新行
-⌘↩   在当前行后插入新行
-⌃⇧K  删除行
-⌘KK  从光标处删除至行尾
-⌘K⌫  从光标处删除至行首
-⌘⇧D  复制(多)行
-⌘J   合并(多)行
-⌘KU  改为大写
-⌘KL  改为小写
-⌘ /  注释
-⌘⌥ /   块注释
-⌘Y   恢复或重复
-⌘⇧V  粘贴并自动缩进
-⌃ space  自动完成(重复按下选择下一个提示)
-⌃M   跳转至对应的括号
-⌘U   软撤销（可撤销光标移动）
-⌘⇧U  软重做（可重做光标移动）
-XML/HTML
-⌘⇧A  选择标签内的内容
-⌘⌥ .   闭合当前标签
-</code></pre>
-
-<h2>查找/替换</h2>
-
-<pre><code>⌘F   查找
-⌘⌥F  替换
-⌘⌥G  查找下一个符合当前所选的内容
-⌘⌃G  查找所有符合当前所选的内容进行多重编辑
-⌘⇧F  在所有打开的文件中进行查找
-拆分窗口/标签页
-
-⌘⌥1  单列
-⌘⌥2  双列
-⌘⌥5  网格 (4组)
-⌃[1,2,3,4]   焦点移动至相应组
-⌃⇧[1,2,3,4]  将当前文件移动至相应组
-⌘[1,2,3…]  选择相应标签页
-</code></pre>
-
-<h2>书签</h2>
-
-<pre><code>⌘F2  添加/去除书签
-F2   下一个书签
-⇧F2  前一个书签
-⌘⇧F2   清除书签
-</code></pre>
-
-<h2>标记</h2>
-
-<pre><code>⌘K space   设置标记
-⌘KW  从光标位置删除至标记
-⌘KA  从光标位置选择至标记
-⌘KG  清除标记
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="2">&larr; Older</a>
-    
-    <a href="/blog/archives/"> Archives </a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -1513,6 +747,7 @@ F2   下一个书签
 
   
 </aside>
+
 
     </div>
   </div>

@@ -9,7 +9,7 @@
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="一个真正的二进制编辑器用两种方式来显示文本: 二进制和十六进制格式。你可以在 Vim 里通过转换程序 “xxd” 来达到这效果。该程序是随 Vim 一起发布的。 首先以二进制方式编辑这个文件: vim -b datafile 现在用 xxd 把这个文件转换成十六进制: :%!xxd &hellip;">
+  <meta name="description" content="Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点： 使用静态页面，不使用数据库； 可以轻松使用makedown标记语言编写文章； 可以与git紧密集成，方便进行博客的版本管理； 可以于Github Pages集成，不需要单独的web hosting &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -50,6 +50,121 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20120809/install-octopress/">Install-octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-09T17:22:14+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Octopress是使用Ruby语言编写的一套建立在jekyll上的博客系统，它有一些很独特的特点：</p>
+
+<p>使用静态页面，不使用数据库； 可以轻松使用makedown标记语言编写文章； 可以与git紧密集成，方便进行博客的版本管理； 可以于Github Pages集成，不需要单独的web hosting，只要你有github帐号即可。 Octopress 安装</p>
+
+<p>在octopress上面有具体的文档，E文好的可以直接</p>
+
+<p>我把我的安装过程整理的下，需要的环境：</p>
+
+<ul>
+<li>git</li>
+<li>Ruby 1.9.2</li>
+<li>安装Git</li>
+</ul>
+
+
+<p>首页git是必备的，具体看到github官网上查看帮助文档 ，这个就比较简单了。</p>
+
+<h3>安装Ruby</h3>
+
+<p>Ruby可以利用RVM或者rbenv来安装，很轻松帮你搞定首页Ruby环境，我是用RVM来安装的。</p>
+
+<ol>
+<li><p>安装 RVM(Ruby Version Manager)</p>
+
+<pre><code>$ bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+</code></pre></li>
+<li><p>安装Ruby1.9.2</p>
+
+<pre><code>rvm install 1.9.2 &amp;&amp; rvm use 1.9.2
+</code></pre></li>
+</ol>
+
+
+<h3>安装Octopress</h3>
+
+<ol>
+<li><p>安装Octopress</p>
+
+<pre><code>git clone git://github.com/imathis/octopress.git myblog
+cd myblog    //这边会有提示信息，yes就行
+ruby --version  //Ruby的版本需要在1.9.2版本
+</code></pre></li>
+<li><p>安装插件等等</p>
+
+<pre><code>gem install bundler //安装相关附属插件等
+bundle install
+</code></pre></li>
+<li><p>安装Octopress 主题</p>
+
+<pre><code>rake install
+</code></pre></li>
+<li><p>修改配置</p>
+
+<pre><code>修改配置文件_config.yml，修改url、title、subtitle、author等等，
+把评论disqus加上，google+、twitter、Facebook等等，统统都加上。 
+在source下建CNAME文件，
+</code></pre></li>
+<li><p>创建github pero</p>
+
+<pre><code>在github上创建一个repository
+</code></pre></li>
+<li><p>本地配置github分支</p>
+
+<pre><code>rake setup_github_pages 当命令提示你输入github URL时，输入刚才建立的git地址
+</code></pre></li>
+<li><p>写文章</p>
+
+<pre><code>rake new_post["my first blog"] 
+在”myblog/source/_post”下生成一个**.makedown文件，编辑文章即可。
+</code></pre></li>
+<li><p>生成，预览</p>
+
+<pre><code>rake generate
+rake preview
+在本地 http://127.0.0.1:4000 就可在本地调试页面
+</code></pre></li>
+</ol>
+
+
+<p>以后发博客只需要在本地用命令就OK了</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -162,6 +277,10 @@ K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 10
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/20160418/java-cucumbershi-yong-zong-jie/">java cucumber使用总结</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/20141114/git-work-flow/">git工作流程(转)</a>
       </li>
     
@@ -175,10 +294,6 @@ K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 10
     
       <li class="post">
         <a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130322/avoid-bundle-exec/">avoid-bundle-exec</a>
       </li>
     
   </ul>
@@ -223,7 +338,7 @@ K,.`…..b..4&lt;sup&gt;.0&lt;/sup&gt; 0000020: 373b 2731 0b22 0ca6 c1a2 d669 10
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - ltl3884 -
+  Copyright &copy; 2016 - ltl3884 -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
