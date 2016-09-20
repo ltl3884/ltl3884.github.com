@@ -4,7 +4,7 @@
   <title><![CDATA[ltl3884]]></title>
   <link href="http://ltl3884.me/atom.xml" rel="self"/>
   <link href="http://ltl3884.me/"/>
-  <updated>2016-04-18T11:57:32+08:00</updated>
+  <updated>2016-09-20T15:30:53+08:00</updated>
   <id>http://ltl3884.me/</id>
   <author>
     <name><![CDATA[ltl3884]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[在OSX上修改用homebrew安装的mysql的bind-ip]]></title>
+    <link href="http://ltl3884.me/blog/20160920/modify-bind-ip-mysql-osx/"/>
+    <updated>2016-09-20T15:20:55+08:00</updated>
+    <id>http://ltl3884.me/blog/20160920/modify-bind-ip-mysql-osx</id>
+    <content type="html"><![CDATA[<p>使用homebrew安装的mysql默认bind-ip是127.0.0.1
+homebrew安装的mysql是launchctl管理的
+首先找到mysql.plist这个文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>locate mysql.plist</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我的mysql.plist在/usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+编辑mysql.plist修改bind-address=0.0.0.0</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl unload /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+</span><span class='line'>launchctl load /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后运行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl list|grep mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看launchctl中mysql的pid</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>56047    1   homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>56047就是pid  如果56047为-的话运行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl start homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[java cucumber使用总结]]></title>

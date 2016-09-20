@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>分类git - ltl3884</title>
+  <title>在OSX上修改用homebrew安装的mysql的bind-ip - ltl3884</title>
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="Category: git">
+  <meta name="description" content="使用homebrew安装的mysql默认bind-ip是127.0.0.1
+homebrew安装的mysql是launchctl管理的
+首先找到mysql.plist这个文件 1
+locate mysql.plist 我的mysql.plist在/usr/local/Cellar/mysql/5. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ltl3884.me/blog/categories/git/">
+  <link rel="canonical" href="http://ltl3884.me/blog/20160920/modify-bind-ip-mysql-osx/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -49,52 +52,123 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">分类git</h1>
+    
+      <h1 class="entry-title">在OSX上修改用homebrew安装的mysql的bind-ip</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-09-20T15:20:55+08:00" pubdate data-updated="true"></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>使用homebrew安装的mysql默认bind-ip是127.0.0.1
+homebrew安装的mysql是launchctl管理的
+首先找到mysql.plist这个文件</p>
 
-  
-  <h2>2014</h2>
-
-<article>
-  
-<h1><a href="/blog/20141114/git-work-flow/">git工作流程(转)</a></h1>
-<time datetime="2014-11-14T11:02:49+08:00" pubdate><span class='month'>Nov</span> <span class='day'>14</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>git</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>locate mysql.plist</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>我的mysql.plist在/usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+编辑mysql.plist修改bind-address=0.0.0.0</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl unload /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+</span><span class='line'>launchctl load /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist</span></code></pre></td></tr></table></div></figure>
 
 
+<p>之后运行</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/20130308/git-show-file-changed/">git-show-file-changed</a></h1>
-<time datetime="2013-03-08T10:36:20+08:00" pubdate><span class='month'>Mar</span> <span class='day'>08</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>git</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl list|grep mysql</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>查看launchctl中mysql的pid</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>56047    1   homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>56047就是pid  如果56047为-的话运行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl start homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">ltl3884</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-09-20T15:20:55+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mysql/'>mysql</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ltl3884.me/blog/20160920/modify-bind-ip-mysql-osx/" data-via="" data-counturl="http://ltl3884.me/blog/20160920/modify-bind-ip-mysql-osx/" >Tweet</a>
+  
+  
+  
+  
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2051231"></script>
+<!-- UY END -->
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20160418/java-cucumbershi-yong-zong-jie/" title="Previous Post: java cucumber使用总结">&laquo; java cucumber使用总结</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

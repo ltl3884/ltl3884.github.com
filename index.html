@@ -9,9 +9,10 @@
   <meta name="author" content="ltl3884">
 
   
-  <meta name="description" content="最近这几个月一直在做java, java在cucumber方面可能不如ROR方便, 也缺少一些有用的工具支持,比如:database_cleaner, factory_girl等, 下面分享一下java在cucumber的一些使用经验 以maven项目为例,首先在pom.xml中加入 1
-2
-3 &hellip;">
+  <meta name="description" content="使用homebrew安装的mysql默认bind-ip是127.0.0.1
+homebrew安装的mysql是launchctl管理的
+首先找到mysql.plist这个文件 1
+locate mysql.plist 我的mysql.plist在/usr/local/Cellar/mysql/5. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -52,6 +53,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20160920/modify-bind-ip-mysql-osx/">在OSX上修改用homebrew安装的mysql的bind-ip</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-09-20T15:20:55+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用homebrew安装的mysql默认bind-ip是127.0.0.1
+homebrew安装的mysql是launchctl管理的
+首先找到mysql.plist这个文件</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>locate mysql.plist</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我的mysql.plist在/usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+编辑mysql.plist修改bind-address=0.0.0.0</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl unload /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist
+</span><span class='line'>launchctl load /usr/local/Cellar/mysql/5.6.22/homebrew.mxcl.mysql.plist</span></code></pre></td></tr></table></div></figure>
+
+
+<p>之后运行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl list|grep mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看launchctl中mysql的pid</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>56047    1   homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
+
+
+<p>56047就是pid  如果56047为-的话运行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>launchctl start homebrew.mxcl.mysql</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1298,112 +1368,6 @@ esc     以该文件中已经出现过的词做自动补全，可以按多次esc
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/20120813/sublime-text-2-useful-shortcuts/">Sublime-text-2-useful-shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-13T10:20:36+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>打开/前往</h2>
-
-<pre><code>⌘T     前往文件
-⌘⌃P  前往项目
-⌘R   前往 method
-⌘⇧P  命令提示
-⌃G   前往行
-⌘KB  开关侧栏
-⌃ `  python 控制台
-⌘⇧N  新建窗口
-</code></pre>
-
-<h2>编辑</h2>
-
-<pre><code>⌘L   选择行 (重复按下将下一行加入选择)
-⌘D   选择词 (重复按下时多重选择相同的词进行多重编辑)
-⌃⇧M  选择括号内的内容
-⌘⇧↩  在当前行前插入新行
-⌘↩   在当前行后插入新行
-⌃⇧K  删除行
-⌘KK  从光标处删除至行尾
-⌘K⌫  从光标处删除至行首
-⌘⇧D  复制(多)行
-⌘J   合并(多)行
-⌘KU  改为大写
-⌘KL  改为小写
-⌘ /  注释
-⌘⌥ /   块注释
-⌘Y   恢复或重复
-⌘⇧V  粘贴并自动缩进
-⌃ space  自动完成(重复按下选择下一个提示)
-⌃M   跳转至对应的括号
-⌘U   软撤销（可撤销光标移动）
-⌘⇧U  软重做（可重做光标移动）
-XML/HTML
-⌘⇧A  选择标签内的内容
-⌘⌥ .   闭合当前标签
-</code></pre>
-
-<h2>查找/替换</h2>
-
-<pre><code>⌘F   查找
-⌘⌥F  替换
-⌘⌥G  查找下一个符合当前所选的内容
-⌘⌃G  查找所有符合当前所选的内容进行多重编辑
-⌘⇧F  在所有打开的文件中进行查找
-拆分窗口/标签页
-
-⌘⌥1  单列
-⌘⌥2  双列
-⌘⌥5  网格 (4组)
-⌃[1,2,3,4]   焦点移动至相应组
-⌃⇧[1,2,3,4]  将当前文件移动至相应组
-⌘[1,2,3…]  选择相应标签页
-</code></pre>
-
-<h2>书签</h2>
-
-<pre><code>⌘F2  添加/去除书签
-F2   下一个书签
-⇧F2  前一个书签
-⌘⇧F2   清除书签
-</code></pre>
-
-<h2>标记</h2>
-
-<pre><code>⌘K space   设置标记
-⌘KW  从光标位置删除至标记
-⌘KA  从光标位置选择至标记
-⌘KG  清除标记
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1456,6 +1420,10 @@ F2   下一个书签
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/20160920/modify-bind-ip-mysql-osx/">在OSX上修改用homebrew安装的mysql的bind-ip</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/20160418/java-cucumbershi-yong-zong-jie/">java cucumber使用总结</a>
       </li>
     
@@ -1469,10 +1437,6 @@ F2   下一个书签
     
       <li class="post">
         <a href="/blog/20130603/bash-profile-and-bashrc/">关于bash_profile和bashrc</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/20130528/quick-bash/">让你提升命令行效率的 Bash 快捷键</a>
       </li>
     
   </ul>
